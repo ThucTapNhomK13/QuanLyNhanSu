@@ -1,6 +1,6 @@
 create database QuanLyNhanSu
 
-create table NhanVien
+create table nhanvien
 (
 manv varchar(10) primary key,
 hoten nvarchar(30),
@@ -9,9 +9,9 @@ quequan text,
 gioitinh nchar(3),
 dantoc nvarchar(20),
 sodienthoai char(11),
-maphongban nvarchar(15),
 machucvu nvarchar(15),
-bangluong char(10)
+bangluong char(10),
+maphongban nvarchar(15)
 )
 
 create table phongban
