@@ -1,4 +1,4 @@
-create database QuanLiNhanSu
+create database QuanLyNhanSu
 
 create table NhanVien
 (
