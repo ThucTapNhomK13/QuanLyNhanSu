@@ -5,7 +5,7 @@ create table nhanvien
 manv varchar(10) primary key,
 hoten nvarchar(30),
 ngaysinh datetime,
-quequan text,
+quequan nchar(200),
 gioitinh nchar(3),
 dantoc nvarchar(20),
 sodienthoai char(11),
@@ -18,7 +18,7 @@ create table phongban
 (
 maphongban nvarchar(15) primary key,
 tenphongban nvarchar(30),
-diachi text,
+diachi nchar(200),
 sodienthoai char(11)
 )
 
@@ -32,7 +32,7 @@ create table trinhdohocvan
 (
 matrinhdohocvan char(10) primary key,
 tentrinhdohocvan nvarchar(20),
-chuyennganh text
+chuyennganh nchar(100)
 )
 
 create table luong
