@@ -2,7 +2,7 @@ create database QuanLyNhanSu
 
 create table nhanvien
 (
-manv varchar(10) primary key,
+manhanvien varchar(10) primary key,
 hoten nvarchar(30),
 ngaysinh datetime,
 quequan nchar(200),
