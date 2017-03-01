@@ -20,15 +20,17 @@ namespace QuanLyNhanSu
 
         private void btndangnhap_Click(object sender, EventArgs e)
         {
-            DataProvider dt = new DataProvider();
-            SqlParameter[] pa = new SqlParameter[]
-            {
-                new SqlParameter("@taikhoan", txttentruycap.Text),
-                new SqlParameter("@matkhau", txtmatkhau.Text)
-            };
-
-            int ret = dt.DangNhap("select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau", pa);
-            if(ret < 0)
+            string querry = "select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
+            SqlConnection cn = new SqlConnection(connectionstring.chuoiketnoi);
+            SqlCommand cm = new SqlCommand();
+            cm.CommandText = querry;
+            cm.Connection = cn;
+            cm.Parameters.Add(new SqlParameter("@taikhoan", txttentruycap.Text));
+            cm.Parameters.Add(new SqlParameter("@matkhau", txtmatkhau.Text));
+            cn.Open();
+            int ret = (int)cm.ExecuteScalar();
+            cn.Close();
+            if (ret <= 0)
             {
                 MessageBox.Show("Đăng nhập không thành công!");
             }
@@ -42,6 +44,7 @@ namespace QuanLyNhanSu
         {
             this.Close();
         }
+<<<<<<< HEAD
 
         bool mv;
         int x, y;
@@ -61,6 +64,41 @@ namespace QuanLyNhanSu
         {
             if (mv)
                 this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
+=======
+        
+        private void txttentruycap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 9)
+            {
+                txtmatkhau.Focus();
+            }
+        }
+
+        private void txttentruycap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtmatkhau.Focus();
+            }
+        }
+
+        private void txtmatkhau_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Up)
+            {
+                txttentruycap.Focus();
+            }
+        }
+
+        private void txtmatkhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btndangnhap_Click(sender, e);
+            }
+>>>>>>> origin/master
         }
     }
 }
