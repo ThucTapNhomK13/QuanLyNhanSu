@@ -42,5 +42,25 @@ namespace QuanLyNhanSu
         {
             this.Close();
         }
+
+        bool mv;
+        int x, y;
+        private void frmdangnhap_MouseUp(object sender, MouseEventArgs e)
+        {
+            mv = false;
+        }
+
+        private void frmdangnhap_MouseDown(object sender, MouseEventArgs e)
+        {
+            mv = true;
+            x = e.X;
+            y = e.Y;
+        }
+
+        private void frmdangnhap_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mv)
+                this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
+        }
     }
 }

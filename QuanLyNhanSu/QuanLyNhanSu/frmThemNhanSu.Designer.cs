@@ -79,6 +79,7 @@
             this.txtHoTen.Size = new System.Drawing.Size(254, 20);
             this.txtHoTen.TabIndex = 3;
             this.txtHoTen.Text = "vu hung cuong";
+            this.txtHoTen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHoTen_MouseClick);
             // 
             // label2
             // 
@@ -114,6 +115,7 @@
             this.txtGioiTinh.Size = new System.Drawing.Size(254, 20);
             this.txtGioiTinh.TabIndex = 7;
             this.txtGioiTinh.Text = "nam";
+            this.txtGioiTinh.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtGioiTinh_MouseClick);
             // 
             // label4
             // 
@@ -131,6 +133,7 @@
             this.txtDanToc.Size = new System.Drawing.Size(254, 20);
             this.txtDanToc.TabIndex = 9;
             this.txtDanToc.Text = "kinh";
+            this.txtDanToc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDanToc_MouseClick);
             // 
             // label5
             // 
@@ -148,6 +151,7 @@
             this.txtSDT.Size = new System.Drawing.Size(254, 20);
             this.txtSDT.TabIndex = 11;
             this.txtSDT.Text = "09865432";
+            this.txtSDT.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSDT_MouseClick);
             // 
             // label6
             // 
@@ -165,6 +169,7 @@
             this.txtQueQuan.Size = new System.Drawing.Size(219, 20);
             this.txtQueQuan.TabIndex = 13;
             this.txtQueQuan.Text = "ninh binh";
+            this.txtQueQuan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtQueQuan_MouseClick);
             // 
             // label7
             // 
@@ -182,6 +187,7 @@
             this.txtTaiKhoan.Size = new System.Drawing.Size(219, 20);
             this.txtTaiKhoan.TabIndex = 15;
             this.txtTaiKhoan.Text = "abcmkcug";
+            this.txtTaiKhoan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTaiKhoan_MouseClick);
             // 
             // label8
             // 
@@ -198,6 +204,7 @@
             this.txtChucVu.Name = "txtChucVu";
             this.txtChucVu.Size = new System.Drawing.Size(219, 20);
             this.txtChucVu.TabIndex = 17;
+            this.txtChucVu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtChucVu_MouseClick);
             // 
             // label9
             // 
@@ -214,6 +221,7 @@
             this.txtLuong.Name = "txtLuong";
             this.txtLuong.Size = new System.Drawing.Size(219, 20);
             this.txtLuong.TabIndex = 19;
+            this.txtLuong.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLuong_MouseClick);
             // 
             // label10
             // 
@@ -230,6 +238,7 @@
             this.txtPhongBan.Name = "txtPhongBan";
             this.txtPhongBan.Size = new System.Drawing.Size(219, 20);
             this.txtPhongBan.TabIndex = 21;
+            this.txtPhongBan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPhongBan_MouseClick);
             // 
             // label11
             // 
@@ -246,6 +255,7 @@
             this.txtHocVan.Name = "txtHocVan";
             this.txtHocVan.Size = new System.Drawing.Size(219, 20);
             this.txtHocVan.TabIndex = 23;
+            this.txtHocVan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHocVan_MouseClick);
             // 
             // label12
             // 

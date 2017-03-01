@@ -27,3 +27,4 @@ C:\Users\MrKenedyCuong\Documents\GitHub\QuanLyNhanSu\QuanLyNhanSu\QuanLyNhanSu\o
 C:\Users\MrKenedyCuong\Documents\GitHub\QuanLyNhanSu\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.frmXoaNhanSu.resources
 C:\Users\MrKenedyCuong\Documents\GitHub\QuanLyNhanSu\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Properties.Resources.resources
 C:\Users\MrKenedyCuong\Documents\GitHub\QuanLyNhanSu\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csproj.GenerateResource.Cache
+C:\Users\MrKenedyCuong\Documents\GitHub\QuanLyNhanSu\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csprojResolveAssemblyReference.cache

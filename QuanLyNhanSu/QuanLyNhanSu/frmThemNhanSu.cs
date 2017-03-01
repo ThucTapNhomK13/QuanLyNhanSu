@@ -60,12 +60,62 @@ namespace QuanLyNhanSu
             else
                 MessageBox.Show("Them that bai", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
+            this.Close();
         }
 
         private void txtNgaySinh_MouseClick(object sender, MouseEventArgs e)
         {
-            //txtNgaySinh.Clear();
+            txtNgaySinh.Clear();
+        }
+
+        private void txtHoTen_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtHoTen.Clear();
+        }
+
+        private void txtGioiTinh_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtGioiTinh.Clear();
+        }
+
+        private void txtDanToc_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtDanToc.Clear();
+        }
+
+        private void txtSDT_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSDT.Clear();
+        }
+
+        private void txtQueQuan_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtQueQuan.Clear();
+        }
+
+        private void txtTaiKhoan_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTaiKhoan.Clear();
+        }
+
+        private void txtChucVu_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtChucVu.Clear();
+        }
+
+        private void txtLuong_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtLuong.Clear();
+        }
+
+        private void txtPhongBan_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtPhongBan.Clear();
+        }
+
+        private void txtHocVan_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtHocVan.Clear();
         }
     }
 }

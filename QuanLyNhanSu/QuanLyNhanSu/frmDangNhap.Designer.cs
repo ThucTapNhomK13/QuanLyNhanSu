@@ -30,85 +30,133 @@
         {
             this.btndangnhap = new System.Windows.Forms.Button();
             this.btnthoat = new System.Windows.Forms.Button();
-            this.txttentruycap = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtmatkhau = new System.Windows.Forms.TextBox();
-            this.lbltentruycap = new System.Windows.Forms.Label();
-            this.lblmatkhau = new System.Windows.Forms.Label();
+            this.txttentruycap = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btndangnhap
             // 
+            this.btndangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.btndangnhap.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btndangnhap.FlatAppearance.BorderSize = 0;
+            this.btndangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndangnhap.Location = new System.Drawing.Point(37, 139);
+            this.btndangnhap.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btndangnhap.Location = new System.Drawing.Point(44, 316);
             this.btndangnhap.Name = "btndangnhap";
             this.btndangnhap.Size = new System.Drawing.Size(113, 42);
             this.btndangnhap.TabIndex = 0;
             this.btndangnhap.Text = "Đăng nhập";
-            this.btndangnhap.UseVisualStyleBackColor = true;
+            this.btndangnhap.UseVisualStyleBackColor = false;
             this.btndangnhap.Click += new System.EventHandler(this.btndangnhap_Click);
             // 
             // btnthoat
             // 
+            this.btnthoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.btnthoat.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnthoat.FlatAppearance.BorderSize = 0;
+            this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.Location = new System.Drawing.Point(268, 139);
+            this.btnthoat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnthoat.Location = new System.Drawing.Point(270, 316);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(113, 42);
             this.btnthoat.TabIndex = 1;
             this.btnthoat.Text = "Thoát";
-            this.btnthoat.UseVisualStyleBackColor = true;
+            this.btnthoat.UseVisualStyleBackColor = false;
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
-            // txttentruycap
+            // panel1
             // 
-            this.txttentruycap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttentruycap.Location = new System.Drawing.Point(137, 39);
-            this.txttentruycap.Name = "txttentruycap";
-            this.txttentruycap.Size = new System.Drawing.Size(244, 24);
-            this.txttentruycap.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(135)))), ((int)(((byte)(175)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(422, 94);
+            this.panel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(186)))), ((int)(((byte)(91)))));
+            this.label1.Location = new System.Drawing.Point(113, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(214, 46);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Đăng nhập";
             // 
             // txtmatkhau
             // 
-            this.txtmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmatkhau.Location = new System.Drawing.Point(137, 85);
+            this.txtmatkhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmatkhau.Location = new System.Drawing.Point(44, 243);
             this.txtmatkhau.Name = "txtmatkhau";
-            this.txtmatkhau.Size = new System.Drawing.Size(244, 24);
-            this.txtmatkhau.TabIndex = 3;
+            this.txtmatkhau.PasswordChar = '*';
+            this.txtmatkhau.Size = new System.Drawing.Size(339, 31);
+            this.txtmatkhau.TabIndex = 8;
+            this.txtmatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lbltentruycap
+            // txttentruycap
             // 
-            this.lbltentruycap.AutoSize = true;
-            this.lbltentruycap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltentruycap.Location = new System.Drawing.Point(34, 42);
-            this.lbltentruycap.Name = "lbltentruycap";
-            this.lbltentruycap.Size = new System.Drawing.Size(93, 18);
-            this.lbltentruycap.TabIndex = 4;
-            this.lbltentruycap.Text = "Tên truy cập:";
+            this.txttentruycap.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txttentruycap.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttentruycap.Location = new System.Drawing.Point(44, 149);
+            this.txttentruycap.Name = "txttentruycap";
+            this.txttentruycap.Size = new System.Drawing.Size(339, 31);
+            this.txttentruycap.TabIndex = 7;
+            this.txttentruycap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblmatkhau
+            // label3
             // 
-            this.lblmatkhau.AutoSize = true;
-            this.lblmatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmatkhau.Location = new System.Drawing.Point(34, 88);
-            this.lblmatkhau.Name = "lblmatkhau";
-            this.lblmatkhau.Size = new System.Drawing.Size(73, 18);
-            this.lblmatkhau.TabIndex = 5;
-            this.lblmatkhau.Text = "Mật khẩu:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(39, 215);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 25);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Mật khẩu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(39, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Tài khoản";
             // 
             // frmdangnhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 209);
-            this.Controls.Add(this.lblmatkhau);
-            this.Controls.Add(this.lbltentruycap);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(87)))), ((int)(((byte)(119)))));
+            this.ClientSize = new System.Drawing.Size(422, 391);
             this.Controls.Add(this.txtmatkhau);
             this.Controls.Add(this.txttentruycap);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnthoat);
             this.Controls.Add(this.btndangnhap);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmdangnhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseUp);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,10 +166,12 @@
 
         private System.Windows.Forms.Button btndangnhap;
         private System.Windows.Forms.Button btnthoat;
-        private System.Windows.Forms.TextBox txttentruycap;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtmatkhau;
-        private System.Windows.Forms.Label lbltentruycap;
-        private System.Windows.Forms.Label lblmatkhau;
+        private System.Windows.Forms.TextBox txttentruycap;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 
