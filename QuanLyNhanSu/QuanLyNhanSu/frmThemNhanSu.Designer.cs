@@ -40,9 +40,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtChucVu = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -78,6 +78,7 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(254, 20);
             this.txtHoTen.TabIndex = 3;
+            this.txtHoTen.Text = "vu hung cuong";
             // 
             // label2
             // 
@@ -94,6 +95,8 @@
             this.txtNgaySinh.Name = "txtNgaySinh";
             this.txtNgaySinh.Size = new System.Drawing.Size(254, 20);
             this.txtNgaySinh.TabIndex = 5;
+            this.txtNgaySinh.Text = "1995/11/11";
+            this.txtNgaySinh.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNgaySinh_MouseClick);
             // 
             // label3
             // 
@@ -110,6 +113,7 @@
             this.txtGioiTinh.Name = "txtGioiTinh";
             this.txtGioiTinh.Size = new System.Drawing.Size(254, 20);
             this.txtGioiTinh.TabIndex = 7;
+            this.txtGioiTinh.Text = "nam";
             // 
             // label4
             // 
@@ -126,6 +130,7 @@
             this.txtDanToc.Name = "txtDanToc";
             this.txtDanToc.Size = new System.Drawing.Size(254, 20);
             this.txtDanToc.TabIndex = 9;
+            this.txtDanToc.Text = "kinh";
             // 
             // label5
             // 
@@ -142,6 +147,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(254, 20);
             this.txtSDT.TabIndex = 11;
+            this.txtSDT.Text = "09865432";
             // 
             // label6
             // 
@@ -152,37 +158,39 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Số điện thoại";
             // 
-            // txtTaiKhoan
+            // txtQueQuan
             // 
-            this.txtTaiKhoan.Location = new System.Drawing.Point(556, 42);
-            this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(219, 20);
-            this.txtTaiKhoan.TabIndex = 13;
+            this.txtQueQuan.Location = new System.Drawing.Point(556, 42);
+            this.txtQueQuan.Name = "txtQueQuan";
+            this.txtQueQuan.Size = new System.Drawing.Size(219, 20);
+            this.txtQueQuan.TabIndex = 13;
+            this.txtQueQuan.Text = "ninh binh";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(454, 45);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Tài khoản";
+            this.label7.Text = "Quê quán";
             // 
-            // txtMatKhau
+            // txtTaiKhoan
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(556, 86);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(219, 20);
-            this.txtMatKhau.TabIndex = 15;
+            this.txtTaiKhoan.Location = new System.Drawing.Point(556, 86);
+            this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.Size = new System.Drawing.Size(219, 20);
+            this.txtTaiKhoan.TabIndex = 15;
+            this.txtTaiKhoan.Text = "abcmkcug";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(454, 89);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Mật khẩu";
+            this.label8.Text = "Tài khoản";
             // 
             // txtChucVu
             // 
@@ -256,6 +264,7 @@
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnThoat
             // 
@@ -265,6 +274,7 @@
             this.btnThoat.TabIndex = 25;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmThemNhanSu
             // 
@@ -281,9 +291,9 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtChucVu);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtMatKhau);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTaiKhoan);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtQueQuan);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.label6);
@@ -320,9 +330,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTaiKhoan;
+        private System.Windows.Forms.TextBox txtQueQuan;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.Label label9;

@@ -39,7 +39,7 @@
             // btndangnhap
             // 
             this.btndangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndangnhap.Location = new System.Drawing.Point(81, 139);
+            this.btndangnhap.Location = new System.Drawing.Point(37, 139);
             this.btndangnhap.Name = "btndangnhap";
             this.btndangnhap.Size = new System.Drawing.Size(113, 42);
             this.btndangnhap.TabIndex = 0;
@@ -50,7 +50,7 @@
             // btnthoat
             // 
             this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.Location = new System.Drawing.Point(231, 139);
+            this.btnthoat.Location = new System.Drawing.Point(268, 139);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(113, 42);
             this.btnthoat.TabIndex = 1;
