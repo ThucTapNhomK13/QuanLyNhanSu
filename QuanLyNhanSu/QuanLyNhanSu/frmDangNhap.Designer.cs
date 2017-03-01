@@ -1,4 +1,4 @@
-﻿namespace QuanLyNhanSu
+namespace QuanLyNhanSu
 {
     partial class frmdangnhap
     {
@@ -39,10 +39,10 @@
             // btndangnhap
             // 
             this.btndangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndangnhap.Location = new System.Drawing.Point(37, 139);
+            this.btndangnhap.Location = new System.Drawing.Point(81, 139);
             this.btndangnhap.Name = "btndangnhap";
             this.btndangnhap.Size = new System.Drawing.Size(113, 42);
-            this.btndangnhap.TabIndex = 0;
+            this.btndangnhap.TabIndex = 2;
             this.btndangnhap.Text = "Đăng nhập";
             this.btndangnhap.UseVisualStyleBackColor = true;
             this.btndangnhap.Click += new System.EventHandler(this.btndangnhap_Click);
@@ -50,10 +50,10 @@
             // btnthoat
             // 
             this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthoat.Location = new System.Drawing.Point(268, 139);
+            this.btnthoat.Location = new System.Drawing.Point(231, 139);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(113, 42);
-            this.btnthoat.TabIndex = 1;
+            this.btnthoat.TabIndex = 3;
             this.btnthoat.Text = "Thoát";
             this.btnthoat.UseVisualStyleBackColor = true;
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
@@ -65,6 +65,8 @@
             this.txttentruycap.Name = "txttentruycap";
             this.txttentruycap.Size = new System.Drawing.Size(244, 24);
             this.txttentruycap.TabIndex = 0;
+            this.txttentruycap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttentruycap_KeyDown);
+            this.txttentruycap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttentruycap_KeyPress);
             // 
             // txtmatkhau
             // 
@@ -72,7 +74,9 @@
             this.txtmatkhau.Location = new System.Drawing.Point(137, 85);
             this.txtmatkhau.Name = "txtmatkhau";
             this.txtmatkhau.Size = new System.Drawing.Size(244, 24);
-            this.txtmatkhau.TabIndex = 3;
+            this.txtmatkhau.TabIndex = 1;
+            this.txtmatkhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtmatkhau_KeyDown);
+            this.txtmatkhau.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtmatkhau_KeyUp);
             // 
             // lbltentruycap
             // 
