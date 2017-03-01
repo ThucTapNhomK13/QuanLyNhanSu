@@ -1,0 +1,133 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace QuanLyNhanSu
+{
+    class DataProvider
+    {
+        private SqlConnection con = null;
+
+
+        // Mở kết nối để thực hiện thao tác
+        public int open()
+        {
+            con = new SqlConnection(connectionstring.chuoiketnoi);
+            try
+            {
+                con.Open();
+            }
+            catch(Exception ex)
+            {
+                return -1;
+            }
+            return 0;
+        }
+
+        // Kiểm tra kết nối
+
+        public int isopen()
+        {
+            if(con == null)
+            {
+                return -1;
+            }
+            if(con.State == ConnectionState.Closed)
+            {
+                return -2;
+            }
+            return 0;
+        }
+
+        // Đóng và giải phóng kết nối
+
+        public void close()
+        {
+            if(isopen() == 0)
+            {
+                con.Close();
+                con = null;
+            }
+        }
+
+        // Thực hiện câu lệnh select bằng store
+        public int ExecuteNonQuerry(string storename, SqlParameter[] pa = null)
+        {
+            int ret = 0;
+            if(open()==0)
+            {
+                open();
+            }
+            SqlCommand cm = new SqlCommand();
+            cm.CommandText = storename;
+            cm.Connection = con;
+            cm.CommandType = CommandType.StoredProcedure;
+            if (pa != null)
+                cm.Parameters.AddRange(pa);
+            try
+            {
+                ret = cm.ExecuteNonQuery();
+            }
+            catch(Exception)
+            {
+                ret = -1;
+            }
+            close();
+            return ret;
+        }
+
+        // Lấy dữ liệu vào datatable
+        public DataTable GetData(string querry, SqlParameter[] pa = null)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cm = new SqlCommand();
+            cm.CommandText = querry;
+            cm.Connection = con;
+            int ret = 0;
+            if(open() == 0)
+            {
+                open();
+            }
+            if(pa!=null)
+            {
+                cm.Parameters.AddRange(pa);
+            }
+
+            SqlDataAdapter da = new SqlDataAdapter(cm);
+            da.Fill(dt);
+            close();
+            return dt;
+        }
+
+        // Đăng nhập
+        public int DangNhap(string querry, SqlParameter[] pa = null)
+        {
+            int ret = 0;
+            SqlCommand cm = new SqlCommand();
+            cm.CommandText = querry;
+            cm.Connection = con;
+            if(open() == 0)
+            {
+                open();
+            }
+            if(pa != null)
+            {
+                cm.Parameters.AddRange(pa);
+            }
+            try
+            {
+                ret = (Int32)cm.ExecuteScalar();
+            }
+            catch(Exception)
+            {
+                return -1;
+            }
+            close();
+            return ret;
+        }
+    }
+}
