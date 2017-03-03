@@ -30,7 +30,7 @@ namespace QuanLyNhanSu
         private void btnThem_Click(object sender, EventArgs e)
         {
             // ma ten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvu luong phongban hocvan
-            DatabaseA dbCon = new DatabaseA();
+            DataProvider dbCon = new DataProvider();
 
             string sqlQuery = "INSERT INTO nhanvien  (ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai, taikhoan) ";
             sqlQuery += " VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan) ";
@@ -44,28 +44,31 @@ namespace QuanLyNhanSu
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@ma", txtMa.Text);
             parameters.Add("@hoten", txtHoTen.Text);
-            parameters.Add("@ngaysinh", txtNgaySinh.Text);
-            parameters.Add("@quequan", txtQueQuan.Text);
-            parameters.Add("@gioitinh", txtGioiTinh.Text);
-            parameters.Add("@dantoc", txtDanToc.Text);
+            parameters.Add("@ngaysinh", datngaysinh.ToString());
+            parameters.Add("@quequan",cmbQueQuan.Text);
+            if(chkNam.Checked)
+                parameters.Add("@gioitinh", chkNam.Text);
+            else
+                parameters.Add("@gioitinh", chkNu.Text);
+            parameters.Add("@dantoc", cmbDanToc.Text);
             parameters.Add("@sodienthoai", txtSDT.Text);
             parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            //parameters.Add("@chucvuma", txtChucVu.Text);
+            //parameters.Add("@chucvuma", cmbChucVu.Text);
             //parameters.Add("@luongcoban", txtLuong.Text);
-            //parameters.Add("@phongbanma", txtPhongBan.Text);
+            //parameters.Add("@phongbanma", cmbPhongBan.Text);
             //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
 
             if (dbCon.InsertUpdateDelete(sqlQuery, parameters, false))
-                MessageBox.Show("Them thanh cong", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Them that bai", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             this.Close();
         }
 
         private void txtNgaySinh_MouseClick(object sender, MouseEventArgs e)
         {
-            txtNgaySinh.Clear();
+           
         }
 
         private void txtHoTen_MouseClick(object sender, MouseEventArgs e)
@@ -73,24 +76,9 @@ namespace QuanLyNhanSu
             txtHoTen.Clear();
         }
 
-        private void txtGioiTinh_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtGioiTinh.Clear();
-        }
-
-        private void txtDanToc_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtDanToc.Clear();
-        }
-
         private void txtSDT_MouseClick(object sender, MouseEventArgs e)
         {
             txtSDT.Clear();
-        }
-
-        private void txtQueQuan_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtQueQuan.Clear();
         }
 
         private void txtTaiKhoan_MouseClick(object sender, MouseEventArgs e)
@@ -98,24 +86,30 @@ namespace QuanLyNhanSu
             txtTaiKhoan.Clear();
         }
 
-        private void txtChucVu_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtChucVu.Clear();
-        }
-
         private void txtLuong_MouseClick(object sender, MouseEventArgs e)
         {
             txtLuong.Clear();
         }
 
-        private void txtPhongBan_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtPhongBan.Clear();
-        }
-
         private void txtHocVan_MouseClick(object sender, MouseEventArgs e)
         {
             txtHocVan.Clear();
+        }
+
+        private void chkNam_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkNam.Checked)
+            {
+                chkNu.Checked = false;
+            }
+        }
+
+        private void chkNu_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkNu.Checked)
+            {
+                chkNam.Checked = false;
+            }
         }
     }
 }

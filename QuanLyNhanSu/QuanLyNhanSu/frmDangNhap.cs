@@ -44,7 +44,7 @@ namespace QuanLyNhanSu
         {
             this.Close();
         }
-<<<<<<< HEAD
+
 
         bool mv;
         int x, y;
@@ -64,7 +64,7 @@ namespace QuanLyNhanSu
         {
             if (mv)
                 this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
-=======
+        }
         
         private void txttentruycap_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -98,7 +98,6 @@ namespace QuanLyNhanSu
                 e.SuppressKeyPress = true;
                 btndangnhap_Click(sender, e);
             }
->>>>>>> origin/master
         }
     }
 }

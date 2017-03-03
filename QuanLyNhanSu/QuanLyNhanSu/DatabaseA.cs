@@ -17,7 +17,7 @@ namespace QuanLyNhanSu
         public bool InsertUpdateDelete(string sql, Dictionary<string, object> parameters, bool isProcedure)
         {
      
-            string ConnectString = connectionstring.hungcuongSQL;
+            string ConnectString = connectionstring.chuoiketnoi;
             using (SqlConnection sqlCon = new SqlConnection(ConnectString))
             {
                 sqlCon.Open();
