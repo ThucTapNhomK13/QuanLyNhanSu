@@ -31,8 +31,10 @@ namespace QuanLyNhanSu
 
         private void itemthemnhansumoi_Click(object sender, EventArgs e)
         {
-            frmThemNhanSu frmthem = new frmThemNhanSu();
-            frmthem.ShowDialog();
+            using (frmThemNhanSu frmthem = new frmThemNhanSu())
+            {
+                frmthem.ShowDialog();
+            }
         }
 
         private void itemsuanhansu_Click(object sender, EventArgs e)
@@ -45,13 +47,36 @@ namespace QuanLyNhanSu
                 frmSuaNhanSu frmsua = new frmSuaNhanSu(id);
                 frmsua.ShowDialog();
             }
+            else
+                MessageBox.Show("Bạn chưa chọn nhân viên cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
 
         private void itemxoanhansu_Click(object sender, EventArgs e)
         {
-            frmXoaNhanSu frmxoa = new frmXoaNhanSu();
-            frmxoa.ShowDialog();
+            if (dgbNS.SelectedRows.Count > 0)
+            {
+                int selectIndex = dgbNS.SelectedRows[0].Index;
+                // 
+                string id = dgbNS[0, selectIndex].Value.ToString();
+
+                DatabaseA dbA = new DatabaseA();
+
+                string sqlQuery = " Delete nhanvien ";
+                sqlQuery += " where ma=@ma ";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@ma", id);
+
+                if (dbA.InsertUpdateDelete(sqlQuery, parameters, false))
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+                MessageBox.Show("Bạn chưa chọn nhân viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private void itemhuongdansudung_Click(object sender, EventArgs e)

@@ -85,12 +85,6 @@
     <Compile Include="frmTimKiem.Designer.cs">
       <DependentUpon>frmTimKiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmXoaNhanSu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmXoaNhanSu.Designer.cs">
-      <DependentUpon>frmXoaNhanSu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XuLyChuoi.cs" />
@@ -111,9 +105,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimKiem.resx">
       <DependentUpon>frmTimKiem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmXoaNhanSu.resx">
-      <DependentUpon>frmXoaNhanSu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
