@@ -47,7 +47,7 @@ namespace QuanLyNhanSu
             this.btndangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndangnhap.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btndangnhap.Location = new System.Drawing.Point(83, 310);
+            this.btndangnhap.Location = new System.Drawing.Point(44, 310);
             this.btndangnhap.Name = "btndangnhap";
             this.btndangnhap.Size = new System.Drawing.Size(113, 42);
             this.btndangnhap.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace QuanLyNhanSu
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthoat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnthoat.Location = new System.Drawing.Point(238, 310);
+            this.btnthoat.Location = new System.Drawing.Point(270, 310);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(113, 42);
             this.btnthoat.TabIndex = 3;

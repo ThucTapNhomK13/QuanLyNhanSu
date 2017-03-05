@@ -32,12 +32,14 @@
             this.itemhethong = new System.Windows.Forms.ToolStripMenuItem();
             this.itemdangnhap = new System.Windows.Forms.ToolStripMenuItem();
             this.itemquanlynguoidung = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemtimkiem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemthemnhansumoi = new System.Windows.Forms.ToolStripMenuItem();
             this.itemsuanhansu = new System.Windows.Forms.ToolStripMenuItem();
             this.itemxoanhansu = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemtimkiem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemhuongdansudung = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgbNS = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbNS)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -49,7 +51,7 @@
             this.itemhuongdansudung});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(697, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(861, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,7 +66,7 @@
             // itemdangnhap
             // 
             this.itemdangnhap.Name = "itemdangnhap";
-            this.itemdangnhap.Size = new System.Drawing.Size(152, 22);
+            this.itemdangnhap.Size = new System.Drawing.Size(140, 22);
             this.itemdangnhap.Text = "Đăng nhập";
             this.itemdangnhap.Click += new System.EventHandler(this.itemdangnhap_Click);
             // 
@@ -78,6 +80,13 @@
             this.itemquanlynguoidung.Name = "itemquanlynguoidung";
             this.itemquanlynguoidung.Size = new System.Drawing.Size(135, 21);
             this.itemquanlynguoidung.Text = "Quản lý người dùng";
+            // 
+            // itemtimkiem
+            // 
+            this.itemtimkiem.Name = "itemtimkiem";
+            this.itemtimkiem.Size = new System.Drawing.Size(186, 22);
+            this.itemtimkiem.Text = "Tìm kiếm";
+            this.itemtimkiem.Click += new System.EventHandler(this.itemtimkiem_Click);
             // 
             // itemthemnhansumoi
             // 
@@ -100,13 +109,6 @@
             this.itemxoanhansu.Text = "Xóa nhân sự";
             this.itemxoanhansu.Click += new System.EventHandler(this.itemxoanhansu_Click);
             // 
-            // itemtimkiem
-            // 
-            this.itemtimkiem.Name = "itemtimkiem";
-            this.itemtimkiem.Size = new System.Drawing.Size(186, 22);
-            this.itemtimkiem.Text = "Tìm kiếm";
-            this.itemtimkiem.Click += new System.EventHandler(this.itemtimkiem_Click);
-            // 
             // itemhuongdansudung
             // 
             this.itemhuongdansudung.Name = "itemhuongdansudung";
@@ -114,19 +116,35 @@
             this.itemhuongdansudung.Text = "Hướng dẫn sử dụng";
             this.itemhuongdansudung.Click += new System.EventHandler(this.itemhuongdansudung_Click);
             // 
+            // dgbNS
+            // 
+            this.dgbNS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgbNS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgbNS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgbNS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgbNS.Location = new System.Drawing.Point(0, 25);
+            this.dgbNS.Name = "dgbNS";
+            this.dgbNS.Size = new System.Drawing.Size(861, 406);
+            this.dgbNS.TabIndex = 1;
+            // 
             // frmmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 348);
+            this.ClientSize = new System.Drawing.Size(861, 431);
+            this.Controls.Add(this.dgbNS);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmmain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Nhân Sự";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmmain_Activated);
+            this.Load += new System.EventHandler(this.frmmain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbNS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +161,6 @@
         private System.Windows.Forms.ToolStripMenuItem itemxoanhansu;
         private System.Windows.Forms.ToolStripMenuItem itemtimkiem;
         private System.Windows.Forms.ToolStripMenuItem itemhuongdansudung;
+        private System.Windows.Forms.DataGridView dgbNS;
     }
 }

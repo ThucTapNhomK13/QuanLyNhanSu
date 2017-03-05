@@ -29,22 +29,19 @@ namespace QuanLyNhanSu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // ma ten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvu luong phongban hocvan
+            // ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvuma luongcoban phongbanma trinhdohocvanma
             DataProvider dbCon = new DataProvider();
 
-            string sqlQuery = "INSERT INTO nhanvien  (ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai, taikhoan) ";
-            sqlQuery += " VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan) ";
-
-            //string sqlQuery = "INSERT INTO [nhanvien] ";
-            //sqlQuery += " (ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai, taikhoan) "; //, chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
-            //sqlQuery += " VALUES ";
-            //sqlQuery += " (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ) ";//, @chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma )";
-
+            string sqlQuery = "INSERT INTO nhanvien ";
+            sqlQuery += "        (ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan) "; 
+            // sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
+            sqlQuery += " VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ) ";
+            //sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@ma", txtMa.Text);
             parameters.Add("@hoten", txtHoTen.Text);
-            parameters.Add("@ngaysinh", datngaysinh.ToString());
+            parameters.Add("@ngaysinh", datngaysinh.Text.ToString());
             parameters.Add("@quequan",cmbQueQuan.Text);
             if(chkNam.Checked)
                 parameters.Add("@gioitinh", chkNam.Text);
@@ -58,17 +55,14 @@ namespace QuanLyNhanSu
             //parameters.Add("@phongbanma", cmbPhongBan.Text);
             //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
 
+            //MessageBox.Show(datngaysinh.Text);
+
             if (dbCon.InsertUpdateDelete(sqlQuery, parameters, false))
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             this.Close();
-        }
-
-        private void txtNgaySinh_MouseClick(object sender, MouseEventArgs e)
-        {
-           
         }
 
         private void txtHoTen_MouseClick(object sender, MouseEventArgs e)

@@ -17,7 +17,7 @@ namespace QuanLyNhanSu
         public bool InsertUpdateDelete(string sql, Dictionary<string, object> parameters, bool isProcedure)
         {
      
-            string ConnectString = connectionstring.chuoiketnoi;
+            string ConnectString = connectionstring.hungcuongSQL;
             using (SqlConnection sqlCon = new SqlConnection(ConnectString))
             {
                 sqlCon.Open();
@@ -40,5 +40,36 @@ namespace QuanLyNhanSu
             }
             
         }
+
+        public DataTable Select (string sql, bool isProcedure, Dictionary<string, object> parameters = null )
+        {
+            string ConnectString = connectionstring.hungcuongSQL;
+            using (SqlConnection sqlCon = new SqlConnection(ConnectString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    if (isProcedure)
+                        sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    else
+                        sqlCmd.CommandType = System.Data.CommandType.Text;
+                    if (parameters != null)
+                        foreach (KeyValuePair<string, object> para in parameters)
+                            sqlCmd.Parameters.Add(new SqlParameter(para.Key, para.Value));
+
+                    using (SqlDataAdapter sqlDa = new SqlDataAdapter(sqlCmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sqlDa.Fill(dt);
+                            return dt;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        
     }
 }

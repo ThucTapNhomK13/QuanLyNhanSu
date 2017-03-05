@@ -15,7 +15,7 @@ namespace QuanLyNhanSu
         public bool InsertUpdateDelete(string sql, Dictionary<string, object> parameters, bool isProcedure)
         {
 
-            string ConnectString = connectionstring.chuoiketnoi;
+            string ConnectString = connectionstring.hungcuongSQL;
             using (SqlConnection sqlCon = new SqlConnection(ConnectString))
             {
                 sqlCon.Open();
@@ -49,6 +49,7 @@ namespace QuanLyNhanSu
             }
             catch(Exception ex)
             {
+                Console.Write(ex.Message);
                 return -1;
             }
             return 0;
@@ -113,7 +114,7 @@ namespace QuanLyNhanSu
             SqlCommand cm = new SqlCommand();
             cm.CommandText = querry;
             cm.Connection = con;
-            int ret = 0;
+            //int ret = 0;
             if(open() == 0)
             {
                 open();
