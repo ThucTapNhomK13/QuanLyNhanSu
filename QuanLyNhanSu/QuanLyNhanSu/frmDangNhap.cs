@@ -20,24 +20,45 @@ namespace QuanLyNhanSu
 
         private void btndangnhap_Click(object sender, EventArgs e)
         {
-            string querry = "select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
-            SqlConnection cn = new SqlConnection(connectionstring.chuoiketnoi);
-            SqlCommand cm = new SqlCommand();
-            cm.CommandText = querry;
-            cm.Connection = cn;
-            cm.Parameters.Add(new SqlParameter("@taikhoan", txttentruycap.Text));
-            cm.Parameters.Add(new SqlParameter("@matkhau", txtmatkhau.Text));
-            cn.Open();
-            int ret = (int)cm.ExecuteScalar();
-            cn.Close();
-            if (ret <= 0)
+
+            //string querry = "select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
+            //SqlConnection cn = new SqlConnection(connectionstring.chuoiketnoi);
+            //SqlCommand cm = new SqlCommand();
+            //cm.CommandText = querry;
+            //cm.Connection = cn;
+            //cm.Parameters.Add(new SqlParameter("@taikhoan", txttentruycap.Text));
+            //cm.Parameters.Add(new SqlParameter("@matkhau", txtmatkhau.Text));
+            //cn.Open();
+            //int ret = (int)cm.ExecuteScalar();
+            //cn.Close();
+            //if (ret <= 0)
+            //{
+            //    MessageBox.Show("Đăng nhập không thành công!");
+            //}
+            //else
+            //{
+            //    this.Close();
+            //}
+            DataProvider dp = new DataProvider();
+
+            string sqlQuery = " select count(*) from nhanvien ";
+            sqlQuery += " where taikhoan = @taikhoan and matkhau = @matkhau ";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@taikhoan", txttentruycap.Text);
+            parameters.Add("@matkhau", txtmatkhau.Text);
+
+            // Đếm 
+            int i = dp.Select(sqlQuery, false, parameters).Rows.Count ;
+
+            if (i > 0)
             {
-                MessageBox.Show("Đăng nhập không thành công!");
-            }
-            else
-            {
+                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-            }
+            }  
+            else
+                MessageBox.Show("Tên người dùng hoặc mật khảu sai", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private void btnthoat_Click(object sender, EventArgs e)

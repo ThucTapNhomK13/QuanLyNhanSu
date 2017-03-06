@@ -12,10 +12,53 @@ namespace QuanLyNhanSu
     {
         private SqlConnection con = null;
 
+        /// <summary>
+        /// Thực hiện truy vấn như hiển thị, tìm kiếm ... 
+        /// </summary>
+        /// <param name="sql">Lệnh sql hoặc Thủ tục</param>
+        /// <param name="isProcedure">True - proc , False - query</param>
+        /// <param name="parameters">Danh sách tham số vào</param>
+        /// <returns></returns>
+        public DataTable Select(string sql, bool isProcedure, Dictionary<string, object> parameters = null)
+        {
+            string ConnectString = connectionstring.ConnectString;
+            using (SqlConnection sqlCon = new SqlConnection(ConnectString))
+            {
+                sqlCon.Open();
+                using (SqlCommand sqlCmd = new SqlCommand(sql, sqlCon))
+                {
+                    if (isProcedure)
+                        sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    else
+                        sqlCmd.CommandType = System.Data.CommandType.Text;
+                    if (parameters != null)
+                        foreach (KeyValuePair<string, object> para in parameters)
+                            sqlCmd.Parameters.Add(new SqlParameter(para.Key, para.Value));
+
+                    using (SqlDataAdapter sqlDa = new SqlDataAdapter(sqlCmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sqlDa.Fill(dt);
+                            return dt;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// Thêm , Sửa , Xóa
+        /// </summary>
+        /// <param name="sql">Câu lệnh truy vấn hoặc thủ tục</param>
+        /// <param name="parameters">Danh sách tham số</param>
+        /// <param name="isProcedure">True - thủ tục  False - Câu lệnh truy vấn</param>
+        /// <returns></returns>
         public bool InsertUpdateDelete(string sql, Dictionary<string, object> parameters, bool isProcedure)
         {
 
-            string ConnectString = connectionstring.hungcuongSQL;
+            string ConnectString = connectionstring.ConnectString;
             using (SqlConnection sqlCon = new SqlConnection(ConnectString))
             {
                 sqlCon.Open();
@@ -42,7 +85,7 @@ namespace QuanLyNhanSu
         // Mở kết nối để thực hiện thao tác
         public int open()
         {
-            con = new SqlConnection(connectionstring.chuoiketnoi);
+            con = new SqlConnection(connectionstring.ConnectString);
             try
             {
                 con.Open();

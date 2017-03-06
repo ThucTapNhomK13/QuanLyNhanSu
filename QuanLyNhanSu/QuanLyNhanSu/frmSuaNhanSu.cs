@@ -25,7 +25,7 @@ namespace QuanLyNhanSu
 
         private DataRow GetDataTable ()
         {
-            DatabaseA dbA = new DatabaseA();
+            DataProvider dbA = new DataProvider();
 
             string sqlQuery = " select ";
             sqlQuery += " ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai, taikhoan, chucvuma, luongcoban, phongbanma, trinhdohocvanma ";
@@ -74,7 +74,7 @@ namespace QuanLyNhanSu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DatabaseA dbA = new DatabaseA();
+            DataProvider dbA = new DataProvider();
 
             string sqlQuery = " update nhanvien ";
             sqlQuery += " set hoten=@hoten, ngaysinh=@ngaysinh, quequan=@quequan, gioitinh=@gioitinh, ";

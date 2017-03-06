@@ -150,12 +150,12 @@
             // 
             // datngaysinh
             // 
-            this.datngaysinh.CustomFormat = "dd/MM/yyyy";
+            this.datngaysinh.CustomFormat = "MM/dd/yyyy";
             this.datngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datngaysinh.Location = new System.Drawing.Point(128, 156);
             this.datngaysinh.Margin = new System.Windows.Forms.Padding(4);
-            this.datngaysinh.MaxDate = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
+            this.datngaysinh.MaxDate = new System.DateTime(2000, 12, 12, 0, 0, 0, 0);
             this.datngaysinh.MinDate = new System.DateTime(1975, 1, 1, 0, 0, 0, 0);
             this.datngaysinh.Name = "datngaysinh";
             this.datngaysinh.Size = new System.Drawing.Size(337, 22);

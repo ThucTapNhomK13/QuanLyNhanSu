@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="connectionstring.cs" />
-    <Compile Include="DatabaseA.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>

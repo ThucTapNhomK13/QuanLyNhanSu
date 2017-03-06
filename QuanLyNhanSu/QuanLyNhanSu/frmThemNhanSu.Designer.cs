@@ -275,7 +275,7 @@
             // 
             // datngaysinh
             // 
-            this.datngaysinh.CustomFormat = "dd/MM/yyyy";
+            this.datngaysinh.CustomFormat = "MM/dd/yyyy";
             this.datngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datngaysinh.Location = new System.Drawing.Point(163, 164);
