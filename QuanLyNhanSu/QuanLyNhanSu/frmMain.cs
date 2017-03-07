@@ -95,10 +95,10 @@ namespace QuanLyNhanSu
             DataProvider dbA = new DataProvider();
 
             string sqlQuery = " select ";
-            sqlQuery += " ma as Ma, hoten as 'Ho ten', ngaysinh as 'Ngay sinh' , quequan as 'Que quan', ";
-            sqlQuery += " gioitinh as 'Gioi tinh ', dantoc as 'Dan toc',  sodienthoai as 'So dien thoai', ";
-            sqlQuery += " taikhoan as 'Tai khoan' , chucvuma as 'Chuc vu', luongcoban as Luong, ";
-            sqlQuery += " phongbanma as 'Phong ban',  trinhdohocvanma as 'Hoc van' ";
+            sqlQuery += " ma as 'ma', hoten as 'hoten', ngaysinh as 'ngaysinh' , gioitinh as 'gioitinh', ";
+            sqlQuery += " quequan as 'quequan', dantoc as 'dantoc',  sodienthoai as 'sodienthoai', ";
+            sqlQuery += " taikhoan as 'taikhoan' , chucvuma as 'chucvu', luongcoban as 'luong', ";
+            sqlQuery += " phongbanma as 'phongban',  trinhdohocvanma as 'hocvan' ";
             sqlQuery += " from nhanvien";
 
             return dbA.Select(sqlQuery, false);
