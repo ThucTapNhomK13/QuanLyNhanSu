@@ -60,7 +60,7 @@ namespace QuanLyNhanSu
                 // 
                 string id = dgbNS[0, selectIndex].Value.ToString();
 
-                DatabaseA dbA = new DatabaseA();
+                DataProvider dbA = new DataProvider();
 
                 string sqlQuery = " Delete nhanvien ";
                 sqlQuery += " where ma=@ma ";
@@ -92,7 +92,7 @@ namespace QuanLyNhanSu
 
         private DataTable GetData ()
         {
-            DatabaseA dbA = new DatabaseA();
+            DataProvider dbA = new DataProvider();
 
             string sqlQuery = " select ";
             sqlQuery += " ma as Ma, hoten as 'Ho ten', ngaysinh as 'Ngay sinh' , quequan as 'Que quan', ";

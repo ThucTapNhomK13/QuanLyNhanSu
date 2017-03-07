@@ -39,6 +39,7 @@ namespace QuanLyNhanSu
             //{
             //    this.Close();
             //}
+
             DataProvider dp = new DataProvider();
 
             string sqlQuery = " select count(*) from nhanvien ";
