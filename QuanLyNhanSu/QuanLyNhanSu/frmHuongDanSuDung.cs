@@ -19,7 +19,7 @@ namespace QuanLyNhanSu
 
         private void frmHuongDanSuDung_Load(object sender, EventArgs e)
         {
-            webBrowser.Navigate("https://www.google.com");
+            webBrowser.Navigate("https://anhkhoaito.blogspot.com/2017/03/huong-dan-su-dung-phan-mem-quan-ly-nhan.html");
             webBrowser.DocumentCompleted += WebBrowser_DocumentCompleted;
         }
 
@@ -91,6 +91,16 @@ namespace QuanLyNhanSu
                 }
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

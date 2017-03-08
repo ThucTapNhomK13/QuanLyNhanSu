@@ -22,6 +22,8 @@ namespace QuanLyNhanSu
             // ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau 
             // chucvuma luongcoban phongbanma trinhdohocvanma
 
+            //dgvDanhSach.Rows.Clear();
+
             DataProvider dp = new DataProvider();
 
             string sqlQuery = " select ma, hoten, ngaysinh, quequan ";
@@ -40,6 +42,8 @@ namespace QuanLyNhanSu
             sqlQuery += " from nhanvien ";
             sqlQuery += " where ngaysinh like '%'+@ngaysinh+'%'";
 
+            
+
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@ma", txtTimKiem.Text);
             parameters.Add("@hoten", txtTimKiem.Text);
@@ -48,9 +52,13 @@ namespace QuanLyNhanSu
 
 
             dgvDanhSach.DataSource = dp.Select(sqlQuery, false, parameters);
+               
 
 
+            
 
+
+         
         }
     }
 }
