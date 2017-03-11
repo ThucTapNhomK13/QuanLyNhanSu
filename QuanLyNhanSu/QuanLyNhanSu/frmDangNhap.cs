@@ -13,6 +13,7 @@ namespace QuanLyNhanSu
 {
     public partial class frmdangnhap : Form
     {
+        public bool dangnhapthanhcong = false;
         public frmdangnhap()
         {
             InitializeComponent();
@@ -42,8 +43,7 @@ namespace QuanLyNhanSu
 
             DataProvider dp = new DataProvider();
 
-            string sqlQuery = " select count(*) from nhanvien ";
-            sqlQuery += " where taikhoan = @taikhoan and matkhau = @matkhau ";
+            string sqlQuery = "select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@taikhoan", txttentruycap.Text);
@@ -54,7 +54,7 @@ namespace QuanLyNhanSu
 
             if (i > 0)
             {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dangnhapthanhcong = true;
                 this.Close();
             }  
             else

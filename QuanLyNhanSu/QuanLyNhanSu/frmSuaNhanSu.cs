@@ -56,7 +56,7 @@ namespace QuanLyNhanSu
             cmbDanToc.Text = dr["dantoc"].ToString();
             txtSDT.Text = dr["sodienthoai"].ToString();
             txtTaiKhoan.Text = dr["taikhoan"].ToString();
-            cmbChucVu.Text = dr["chucvuma"].ToString();
+            //cmbChucVu.Text = dr["chucvuma"].ToString();
             //txtLuong.Text = dr["luongcoban"].ToString();
             //cmbPhongBan.Text = dr["phongbanma"].ToString();
             //txtHocVan.Text = dr["trinhdohocvanma"].ToString();
@@ -65,6 +65,12 @@ namespace QuanLyNhanSu
         private void frmSuaNhanSu_Load(object sender, EventArgs e)
         {
             SelectID(GetDataTable());
+            DataProvider dp = new DataProvider();
+            string sql = "select tenphongban from phongban";
+            DataTable dt = new DataTable();
+            dt = dp.GetData(sql);
+            cmbPhongBan.DataSource = dt;
+            cmbPhongBan.DisplayMember = "tenphongban";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -72,14 +78,14 @@ namespace QuanLyNhanSu
             this.Close();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
         {
             DataProvider dbA = new DataProvider();
 
             string sqlQuery = " update nhanvien ";
             sqlQuery += " set hoten=@hoten, ngaysinh=@ngaysinh, quequan=@quequan, gioitinh=@gioitinh, ";
             sqlQuery += " dantoc=@dantoc, sodienthoai=@sdt, taikhoan=@taikhoan ";
-            //sqlQuery += ", chucvuma=@chucvu,  luongcoban=@luong, phongbanma=@phongban, trinhdohocvanma=@hocvan ";
+            sqlQuery += ", chucvuma=@chucvu,  luongcoban=@luong, phongbanma=@phongban, trinhdohocvanma=@hocvan ";
             sqlQuery += " where ma=@ma";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -94,8 +100,8 @@ namespace QuanLyNhanSu
             parameters.Add("@dantoc", cmbDanToc.Text);
             parameters.Add("@sdt", txtSDT.Text);
             parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            //parameters.Add("@chucvu", cmbChucVu.Text);
-            //parameters.Add("@luong", txtLuong.Text);
+            parameters.Add("@chucvu", cmbChucVu.Text);
+            parameters.Add("@luong", txtLuong.Text);
             //parameters.Add("@phongban", cmbPhongBan.Text);
             //parameters.Add("@hocvan", txtHocVan.Text);
 
@@ -105,8 +111,6 @@ namespace QuanLyNhanSu
                 MessageBox.Show("Sửa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             this.Close();
-
-
         }
     }
 }

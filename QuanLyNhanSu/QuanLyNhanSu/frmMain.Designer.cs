@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgbNS = new System.Windows.Forms.DataGridView();
+            this.dgvNV = new System.Windows.Forms.DataGridView();
             this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaysinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,20 +51,22 @@
             this.itemhuongdansudung = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbNS)).BeginInit();
+            this.btnsua = new System.Windows.Forms.Button();
+            this.btnxoa = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgbNS
+            // dgvNV
             // 
-            this.dgbNS.AllowUserToAddRows = false;
-            this.dgbNS.AllowUserToDeleteRows = false;
-            this.dgbNS.AllowUserToResizeColumns = false;
-            this.dgbNS.AllowUserToResizeRows = false;
-            this.dgbNS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgbNS.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgbNS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgbNS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvNV.AllowUserToAddRows = false;
+            this.dgvNV.AllowUserToDeleteRows = false;
+            this.dgvNV.AllowUserToResizeColumns = false;
+            this.dgvNV.AllowUserToResizeRows = false;
+            this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ma,
             this.hoten,
             this.ngaysinh,
@@ -77,12 +79,19 @@
             this.luong,
             this.phongban,
             this.hocvan});
-            this.dgbNS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgbNS.Location = new System.Drawing.Point(0, 25);
-            this.dgbNS.Name = "dgbNS";
-            this.dgbNS.ReadOnly = true;
-            this.dgbNS.Size = new System.Drawing.Size(1161, 497);
-            this.dgbNS.TabIndex = 1;
+            this.dgvNV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvNV.Location = new System.Drawing.Point(0, 25);
+            this.dgvNV.Name = "dgvNV";
+            this.dgvNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNV.Size = new System.Drawing.Size(1161, 497);
+            this.dgvNV.TabIndex = 1;
+            this.dgvNV.Visible = false;
+            this.dgvNV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvNV.Location = new System.Drawing.Point(0, 25);
+            this.dgvNV.Name = "dgbNS";
+            this.dgvNV.ReadOnly = true;
+            this.dgvNV.Size = new System.Drawing.Size(1161, 497);
+            this.dgvNV.TabIndex = 1;
             // 
             // ma
             // 
@@ -193,6 +202,7 @@
             this.itemquanlynguoidung.Name = "itemquanlynguoidung";
             this.itemquanlynguoidung.Size = new System.Drawing.Size(135, 21);
             this.itemquanlynguoidung.Text = "Quản lý người dùng";
+            this.itemquanlynguoidung.Visible = false;
             // 
             // itemtimkiem
             // 
@@ -251,13 +261,39 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
+            // btnsua
+            // 
+            this.btnsua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsua.Location = new System.Drawing.Point(1034, 460);
+            this.btnsua.Name = "btnsua";
+            this.btnsua.Size = new System.Drawing.Size(96, 34);
+            this.btnsua.TabIndex = 6;
+            this.btnsua.Text = "Sửa";
+            this.btnsua.UseVisualStyleBackColor = true;
+            this.btnsua.Visible = false;
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
+            // 
+            // btnxoa
+            // 
+            this.btnxoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnxoa.Location = new System.Drawing.Point(1034, 460);
+            this.btnxoa.Name = "btnxoa";
+            this.btnxoa.Size = new System.Drawing.Size(96, 34);
+            this.btnxoa.TabIndex = 7;
+            this.btnxoa.Text = "Xóa";
+            this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Visible = false;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
+            // 
             // frmmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 522);
+            this.Controls.Add(this.btnxoa);
+            this.Controls.Add(this.btnsua);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgbNS);
+            this.Controls.Add(this.dgvNV);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
@@ -266,7 +302,7 @@
             this.Text = "Quản Lý Nhân Sự";
             this.Activated += new System.EventHandler(this.frmmain_Activated);
             this.Load += new System.EventHandler(this.frmmain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgbNS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -276,7 +312,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgbNS;
+        private System.Windows.Forms.DataGridView dgvNV;
         private System.Windows.Forms.ToolStripMenuItem itemhethong;
         private System.Windows.Forms.ToolStripMenuItem itemdangnhap;
         private System.Windows.Forms.ToolStripMenuItem itemquanlynguoidung;
@@ -299,5 +335,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn luong;
         private System.Windows.Forms.DataGridViewTextBoxColumn phongban;
         private System.Windows.Forms.DataGridViewTextBoxColumn hocvan;
+        private System.Windows.Forms.Button btnsua;
+        private System.Windows.Forms.Button btnxoa;
     }
 }

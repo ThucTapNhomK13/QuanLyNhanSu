@@ -21,6 +21,10 @@ namespace QuanLyNhanSu
         {
             frmdangnhap dn = new frmdangnhap();
             dn.ShowDialog();
+            if(dn.dangnhapthanhcong)
+            {
+                itemquanlynguoidung.Visible = true;
+            }
         }
 
         private void itemtimkiem_Click(object sender, EventArgs e)
@@ -39,44 +43,18 @@ namespace QuanLyNhanSu
 
         private void itemsuanhansu_Click(object sender, EventArgs e)
         {
-            if (dgbNS.SelectedRows.Count > 0)
-            {
-                int selectIndex = dgbNS.SelectedRows[0].Index;
-                // Lay ma trong datagridview o cot dau tien 
-                string id = dgbNS[0, selectIndex].Value.ToString();
-                frmSuaNhanSu frmsua = new frmSuaNhanSu(id);
-                frmsua.ShowDialog();
-            }
-            else
-                MessageBox.Show("Bạn chưa chọn nhân viên cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+            dgvNV.DataSource = GetData();
+            dgvNV.Visible = true;
+            btnsua.Visible = true;
+            btnxoa.Visible = false;
         }
 
         private void itemxoanhansu_Click(object sender, EventArgs e)
         {
-            if (dgbNS.SelectedRows.Count > 0)
-            {
-                int selectIndex = dgbNS.SelectedRows[0].Index;
-                // 
-                string id = dgbNS[0, selectIndex].Value.ToString();
-
-                DataProvider dbA = new DataProvider();
-
-                string sqlQuery = " Delete nhanvien ";
-                sqlQuery += " where ma=@ma ";
-
-                Dictionary<string, object> parameters = new Dictionary<string, object>();
-                parameters.Add("@ma", id);
-
-                if (dbA.InsertUpdateDelete(sqlQuery, parameters, false))
-                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            else
-                MessageBox.Show("Bạn chưa chọn nhân viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            dgvNV.DataSource = GetData();
+            dgvNV.Visible = true;
+            btnsua.Visible = false;
+            btnxoa.Visible = true;
         }
 
         private void itemhuongdansudung_Click(object sender, EventArgs e)
@@ -87,7 +65,7 @@ namespace QuanLyNhanSu
 
         private void frmmain_Load(object sender, EventArgs e)
         {
-            dgbNS.DataSource = GetData();
+            
         }
 
         private DataTable GetData ()
@@ -106,7 +84,49 @@ namespace QuanLyNhanSu
 
         private void frmmain_Activated(object sender, EventArgs e)
         {
-            dgbNS.DataSource = GetData();
+            dgvNV.DataSource = GetData();
+        }
+
+        private void btnsua_Click(object sender, EventArgs e)
+        {
+            if (dgvNV.SelectedRows.Count > 0)
+            {
+                int selectIndex = dgvNV.SelectedRows[0].Index;
+                // Lay ma trong datagridview o cot dau tien 
+                string id = dgvNV[0, selectIndex].Value.ToString();
+                frmSuaNhanSu frmsua = new frmSuaNhanSu(id);
+                frmsua.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn nhân viên cần sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+            if (dgvNV.SelectedRows.Count > 0)
+            {
+                int selectIndex = dgvNV.SelectedRows[0].Index;
+                // 
+                string id = dgvNV[0, selectIndex].Value.ToString();
+
+                DataProvider dbA = new DataProvider();
+
+                string sqlQuery = " Delete nhanvien ";
+                sqlQuery += " where ma=@ma ";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@ma", id);
+
+                if (dbA.InsertUpdateDelete(sqlQuery, parameters, false))
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+                MessageBox.Show("Bạn chưa chọn nhân viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

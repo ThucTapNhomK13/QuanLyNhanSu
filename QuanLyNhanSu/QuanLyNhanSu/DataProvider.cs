@@ -151,26 +151,21 @@ namespace QuanLyNhanSu
         }
 
         // Lấy dữ liệu vào datatable
-        public DataTable GetData(string querry, SqlParameter[] pa = null)
-        {
-            DataTable dt = new DataTable();
-            SqlCommand cm = new SqlCommand();
-            cm.CommandText = querry;
-            cm.Connection = con;
-            //int ret = 0;
+        public DataTable GetData(string querry)
+        {          
             if(open() == 0)
             {
                 open();
             }
-            if(pa!=null)
-            {
-                cm.Parameters.AddRange(pa);
-            }
 
+            SqlCommand cm = new SqlCommand();
+            cm.CommandText = querry;
+            cm.Connection = con;
+            DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cm);
             da.Fill(dt);
             close();
-            return dt;
+            return dt;        
         }
 
         // Đăng nhập

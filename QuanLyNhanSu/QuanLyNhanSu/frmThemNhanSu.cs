@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QuanLyNhanSu
 {
@@ -19,7 +20,12 @@ namespace QuanLyNhanSu
 
         private void frmThemNhanSu_Load(object sender, EventArgs e)
         {
-
+            DataProvider dp = new DataProvider();
+            string sql = "select tenphongban from phongban";
+            DataTable dt = new DataTable();
+            dt = dp.GetData(sql);
+            cmbPhongBan.DataSource = dt;
+            cmbPhongBan.DisplayMember = "tenphongban";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
