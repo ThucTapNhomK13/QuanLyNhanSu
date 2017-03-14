@@ -86,6 +86,7 @@
             this.txtHoTen.Size = new System.Drawing.Size(337, 22);
             this.txtHoTen.TabIndex = 3;
             this.txtHoTen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHoTen_MouseClick);
+            this.txtHoTen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtHoTen_KeyDown);
             // 
             // label2
             // 
@@ -139,7 +140,6 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(337, 22);
             this.txtSDT.TabIndex = 11;
-            this.txtSDT.Text = "09865432";
             this.txtSDT.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSDT_MouseClick);
             // 
             // label6
@@ -252,7 +252,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(150, 364);
+            this.btnThem.Location = new System.Drawing.Point(403, 364);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(119, 37);
@@ -264,7 +264,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(368, 364);
+            this.btnThoat.Location = new System.Drawing.Point(556, 364);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(119, 37);
