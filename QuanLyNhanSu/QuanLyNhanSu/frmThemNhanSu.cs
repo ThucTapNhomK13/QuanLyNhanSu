@@ -18,6 +18,37 @@ namespace QuanLyNhanSu
             InitializeComponent();
         }
 
+        private bool XuLyDuLieu ()
+        {
+
+            if (!XuLyChuoi.KiemTraMa(txtMa.Text))
+            {
+                lblMa.Text = "Lỗi";
+                return false;
+            }
+
+
+
+
+            if (!XuLyChuoi.KiemTraHoTen(txtHoTen.Text))
+            {
+                lblHoTen.Text = "Lỗi";
+                return false;
+            }
+
+            if (!XuLyChuoi.KiemTraSDT(txtSDT.Text))
+            {
+                lblSDT.Text = "Lỗi";
+                return false;
+            }
+
+            if (!XuLyChuoi.KiemTraTaiKhoan(txtTaiKhoan.Text))
+            {
+                lblTK.Text = "Lỗi";
+                return false;
+            }
+            return true;
+        }
         private void frmThemNhanSu_Load(object sender, EventArgs e)
         {
             DataProvider dp = new DataProvider();
@@ -35,14 +66,16 @@ namespace QuanLyNhanSu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (!XuLyDuLieu())
+                return;
             // ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvuma luongcoban phongbanma trinhdohocvanma
             DataProvider dbCon = new DataProvider();
 
             string sqlQuery = "INSERT INTO nhanvien ";
-            sqlQuery += "        (ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan) "; 
-            // sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
-            sqlQuery += " VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ) ";
-            //sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
+            sqlQuery += " ( ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan "; 
+            sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
+            sqlQuery += " VALUES ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ";
+            sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@ma", txtMa.Text);
@@ -56,10 +89,10 @@ namespace QuanLyNhanSu
             parameters.Add("@dantoc", cmbDanToc.Text);
             parameters.Add("@sodienthoai", txtSDT.Text);
             parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            //parameters.Add("@chucvuma", cmbChucVu.Text);
-            //parameters.Add("@luongcoban", txtLuong.Text);
-            //parameters.Add("@phongbanma", cmbPhongBan.Text);
-            //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
+            parameters.Add("@chucvuma", cmbChucVu.Text);
+            parameters.Add("@luongcoban", txtLuong.Text);
+            parameters.Add("@phongbanma", cmbPhongBan.Text);
+            parameters.Add("@trinhdohocvanma", txtHocVan.Text);
 
             //MessageBox.Show(datngaysinh.Text);
 
@@ -74,16 +107,19 @@ namespace QuanLyNhanSu
         private void txtHoTen_MouseClick(object sender, MouseEventArgs e)
         {
             txtHoTen.Clear();
+            lblHoTen.Text = "";
         }
 
         private void txtSDT_MouseClick(object sender, MouseEventArgs e)
         {
             txtSDT.Clear();
+            lblSDT.Text = "";
         }
 
         private void txtTaiKhoan_MouseClick(object sender, MouseEventArgs e)
         {
             txtTaiKhoan.Clear();
+            lblTK.Text = "";
         }
 
         private void txtLuong_MouseClick(object sender, MouseEventArgs e)
@@ -110,6 +146,12 @@ namespace QuanLyNhanSu
             {
                 chkNam.Checked = false;
             }
+        }
+
+        private void txtMa_Click(object sender, EventArgs e)
+        {
+            txtMa.Clear();
+            lblMa.Text = "";
         }
     }
 }

@@ -19,6 +19,18 @@ namespace QuanLyNhanSu
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
+           
+               
+
+
+            
+
+
+         
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             // ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau 
             // chucvuma luongcoban phongbanma trinhdohocvanma
 
@@ -42,7 +54,7 @@ namespace QuanLyNhanSu
             sqlQuery += " from nhanvien ";
             sqlQuery += " where ngaysinh like '%'+@ngaysinh+'%'";
 
-            
+
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@ma", txtTimKiem.Text);
@@ -52,13 +64,6 @@ namespace QuanLyNhanSu
 
 
             dgvDanhSach.DataSource = dp.Select(sqlQuery, false, parameters);
-               
-
-
-            
-
-
-         
         }
     }
 }

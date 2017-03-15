@@ -55,6 +55,10 @@
             this.cmbDanToc = new System.Windows.Forms.ComboBox();
             this.cmbChucVu = new System.Windows.Forms.ComboBox();
             this.cmbPhongBan = new System.Windows.Forms.ComboBox();
+            this.lblMa = new System.Windows.Forms.Label();
+            this.lblHoTen = new System.Windows.Forms.Label();
+            this.lblSDT = new System.Windows.Forms.Label();
+            this.lblTK = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -76,6 +80,7 @@
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(337, 22);
             this.txtMa.TabIndex = 1;
+            this.txtMa.Click += new System.EventHandler(this.txtMa_Click);
             // 
             // txtHoTen
             // 
@@ -380,11 +385,59 @@
             this.cmbPhongBan.Size = new System.Drawing.Size(291, 24);
             this.cmbPhongBan.TabIndex = 32;
             // 
+            // lblMa
+            // 
+            this.lblMa.AutoSize = true;
+            this.lblMa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMa.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMa.Location = new System.Drawing.Point(147, 57);
+            this.lblMa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMa.Name = "lblMa";
+            this.lblMa.Size = new System.Drawing.Size(0, 16);
+            this.lblMa.TabIndex = 33;
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHoTen.Location = new System.Drawing.Point(147, 112);
+            this.lblHoTen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(0, 16);
+            this.lblHoTen.TabIndex = 34;
+            // 
+            // lblSDT
+            // 
+            this.lblSDT.AutoSize = true;
+            this.lblSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSDT.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSDT.Location = new System.Drawing.Point(147, 328);
+            this.lblSDT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSDT.Name = "lblSDT";
+            this.lblSDT.Size = new System.Drawing.Size(0, 16);
+            this.lblSDT.TabIndex = 35;
+            // 
+            // lblTK
+            // 
+            this.lblTK.AutoSize = true;
+            this.lblTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTK.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTK.Location = new System.Drawing.Point(686, 112);
+            this.lblTK.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTK.Name = "lblTK";
+            this.lblTK.Size = new System.Drawing.Size(0, 16);
+            this.lblTK.TabIndex = 36;
+            // 
             // frmThemNhanSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 436);
+            this.Controls.Add(this.lblTK);
+            this.Controls.Add(this.lblSDT);
+            this.Controls.Add(this.lblHoTen);
+            this.Controls.Add(this.lblMa);
             this.Controls.Add(this.cmbPhongBan);
             this.Controls.Add(this.cmbChucVu);
             this.Controls.Add(this.cmbDanToc);
@@ -413,6 +466,7 @@
             this.Controls.Add(this.txtMa);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThemNhanSu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -452,5 +506,9 @@
         private System.Windows.Forms.ComboBox cmbDanToc;
         private System.Windows.Forms.ComboBox cmbChucVu;
         private System.Windows.Forms.ComboBox cmbPhongBan;
+        private System.Windows.Forms.Label lblMa;
+        private System.Windows.Forms.Label lblHoTen;
+        private System.Windows.Forms.Label lblSDT;
+        private System.Windows.Forms.Label lblTK;
     }
 }
