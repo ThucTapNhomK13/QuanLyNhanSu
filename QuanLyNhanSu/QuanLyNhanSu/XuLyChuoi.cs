@@ -33,7 +33,6 @@ namespace QuanLyNhanSu
             return new string(arr); // trả về chuỗi mới sau khi đảo mảng
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// Kiểm tra 'ma' 
         /// </summary>
@@ -108,10 +107,10 @@ namespace QuanLyNhanSu
         /// </summary>
         /// <param name="text">Chuỗi</param>
         /// <returns></returns>
-        public static string VietHoa (string text)
+        public static string VietHoa(string text)
         {
             return text.ToUpper();
-=======
+        }
         public static string chuanhoa(string s)
         {
             s = s.ToLower();
@@ -127,7 +126,6 @@ namespace QuanLyNhanSu
                 strResult += item.Substring(0, 1).ToUpper() + item.Substring(1) + " ";
             }
             return strResult;
->>>>>>> origin/master
         }
     }
 }

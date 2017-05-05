@@ -19,12 +19,14 @@ namespace QuanLyNhanSu
 
         private void itemdangnhap_Click(object sender, EventArgs e)
         {
-            frmdangnhap dn = new frmdangnhap();
-            dn.ShowDialog();
-            if(dn.dangnhapthanhcong)
+            using (frmdangnhap dn = new frmdangnhap())
             {
-                itemquanlynguoidung.Visible = true;
-            }
+                dn.ShowDialog();
+                if (dn.dangnhapthanhcong)
+                {
+                    this.Close();
+                }
+            }                
         }
 
         private void itemtimkiem_Click(object sender, EventArgs e)
@@ -79,7 +81,7 @@ namespace QuanLyNhanSu
             sqlQuery += " phongbanma as phongban ,  trinhdohocvanma as hocvan";
             sqlQuery += " from nhanvien";
 
-            return dbA.Select(sqlQuery, false);
+            return dbA.Select(sqlQuery, false, null);
         }
 
         private void frmmain_Activated(object sender, EventArgs e)
@@ -127,6 +129,11 @@ namespace QuanLyNhanSu
             }
             else
                 MessageBox.Show("Bạn chưa chọn nhân viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void itemDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -53,6 +53,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnsua = new System.Windows.Forms.Button();
             this.btnxoa = new System.Windows.Forms.Button();
+            this.itemDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,16 +83,11 @@
             this.dgvNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvNV.Location = new System.Drawing.Point(0, 25);
             this.dgvNV.Name = "dgvNV";
+            this.dgvNV.ReadOnly = true;
             this.dgvNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNV.Size = new System.Drawing.Size(1161, 497);
             this.dgvNV.TabIndex = 1;
             this.dgvNV.Visible = false;
-            this.dgvNV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvNV.Location = new System.Drawing.Point(0, 25);
-            this.dgvNV.Name = "dgbNS";
-            this.dgvNV.ReadOnly = true;
-            this.dgvNV.Size = new System.Drawing.Size(1161, 497);
-            this.dgvNV.TabIndex = 1;
             // 
             // ma
             // 
@@ -99,6 +95,7 @@
             this.ma.FillWeight = 30F;
             this.ma.HeaderText = "Mã";
             this.ma.Name = "ma";
+            this.ma.ReadOnly = true;
             // 
             // hoten
             // 
@@ -106,6 +103,7 @@
             this.hoten.FillWeight = 54.63992F;
             this.hoten.HeaderText = "Họ tên";
             this.hoten.Name = "hoten";
+            this.hoten.ReadOnly = true;
             // 
             // ngaysinh
             // 
@@ -113,6 +111,7 @@
             this.ngaysinh.FillWeight = 54.63992F;
             this.ngaysinh.HeaderText = "Ngày sinh";
             this.ngaysinh.Name = "ngaysinh";
+            this.ngaysinh.ReadOnly = true;
             // 
             // gioitinh
             // 
@@ -120,6 +119,7 @@
             this.gioitinh.FillWeight = 54.63992F;
             this.gioitinh.HeaderText = "Giới tính";
             this.gioitinh.Name = "gioitinh";
+            this.gioitinh.ReadOnly = true;
             // 
             // quequan
             // 
@@ -127,6 +127,7 @@
             this.quequan.FillWeight = 54.63992F;
             this.quequan.HeaderText = "Quê quán";
             this.quequan.Name = "quequan";
+            this.quequan.ReadOnly = true;
             // 
             // dantoc
             // 
@@ -134,6 +135,7 @@
             this.dantoc.FillWeight = 54.63992F;
             this.dantoc.HeaderText = "Dân tộc";
             this.dantoc.Name = "dantoc";
+            this.dantoc.ReadOnly = true;
             // 
             // sodienthoai
             // 
@@ -141,6 +143,7 @@
             this.sodienthoai.FillWeight = 54.63992F;
             this.sodienthoai.HeaderText = "Số điện thoại";
             this.sodienthoai.Name = "sodienthoai";
+            this.sodienthoai.ReadOnly = true;
             // 
             // taikhoan
             // 
@@ -148,6 +151,7 @@
             this.taikhoan.FillWeight = 54.63992F;
             this.taikhoan.HeaderText = "Tài khoản";
             this.taikhoan.Name = "taikhoan";
+            this.taikhoan.ReadOnly = true;
             // 
             // chucvu
             // 
@@ -155,6 +159,7 @@
             this.chucvu.FillWeight = 54.63992F;
             this.chucvu.HeaderText = "Chức vụ";
             this.chucvu.Name = "chucvu";
+            this.chucvu.ReadOnly = true;
             // 
             // luong
             // 
@@ -162,6 +167,7 @@
             this.luong.FillWeight = 54.63992F;
             this.luong.HeaderText = "Lương";
             this.luong.Name = "luong";
+            this.luong.ReadOnly = true;
             // 
             // phongban
             // 
@@ -169,6 +175,7 @@
             this.phongban.FillWeight = 54.63992F;
             this.phongban.HeaderText = "Phòng ban";
             this.phongban.Name = "phongban";
+            this.phongban.ReadOnly = true;
             // 
             // hocvan
             // 
@@ -176,11 +183,13 @@
             this.hocvan.FillWeight = 54.63992F;
             this.hocvan.HeaderText = "Học vấn";
             this.hocvan.Name = "hocvan";
+            this.hocvan.ReadOnly = true;
             // 
             // itemhethong
             // 
             this.itemhethong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemdangnhap});
+            this.itemdangnhap,
+            this.itemDangXuat});
             this.itemhethong.Name = "itemhethong";
             this.itemhethong.Size = new System.Drawing.Size(74, 21);
             this.itemhethong.Text = "Hệ thống";
@@ -188,7 +197,7 @@
             // itemdangnhap
             // 
             this.itemdangnhap.Name = "itemdangnhap";
-            this.itemdangnhap.Size = new System.Drawing.Size(140, 22);
+            this.itemdangnhap.Size = new System.Drawing.Size(152, 22);
             this.itemdangnhap.Text = "Đăng nhập";
             this.itemdangnhap.Click += new System.EventHandler(this.itemdangnhap_Click);
             // 
@@ -202,7 +211,6 @@
             this.itemquanlynguoidung.Name = "itemquanlynguoidung";
             this.itemquanlynguoidung.Size = new System.Drawing.Size(135, 21);
             this.itemquanlynguoidung.Text = "Quản lý người dùng";
-            this.itemquanlynguoidung.Visible = false;
             // 
             // itemtimkiem
             // 
@@ -285,6 +293,13 @@
             this.btnxoa.Visible = false;
             this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
+            // itemDangXuat
+            // 
+            this.itemDangXuat.Name = "itemDangXuat";
+            this.itemDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.itemDangXuat.Text = "Đăng xuất";
+            this.itemDangXuat.Click += new System.EventHandler(this.itemDangXuat_Click);
+            // 
             // frmmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,5 +352,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hocvan;
         private System.Windows.Forms.Button btnsua;
         private System.Windows.Forms.Button btnxoa;
+        private System.Windows.Forms.ToolStripMenuItem itemDangXuat;
     }
 }

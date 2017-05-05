@@ -72,17 +72,14 @@ namespace QuanLyNhanSu
             DataProvider dbCon = new DataProvider();
 
             string sqlQuery = "INSERT INTO nhanvien ";
-<<<<<<< HEAD
             sqlQuery += " ( ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan "; 
             sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
             sqlQuery += " VALUES ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ";
             sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
-=======
             sqlQuery += "(ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai)";
             //sqlQuery += ", taikhoan,chucvuma, luongcoban, phongbanma, trinhdohocvanma) ";
             sqlQuery += "VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai)";
             //sqlQuery += " , @taikhoan,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
->>>>>>> origin/master
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@ma", txtMa.Text);
@@ -95,13 +92,11 @@ namespace QuanLyNhanSu
                 parameters.Add("@gioitinh", chkNu.Text);
             parameters.Add("@dantoc", cmbDanToc.Text);
             parameters.Add("@sodienthoai", txtSDT.Text);
-<<<<<<< HEAD
             parameters.Add("@taikhoan", txtTaiKhoan.Text);
             parameters.Add("@chucvuma", cmbChucVu.Text);
             parameters.Add("@luongcoban", txtLuong.Text);
             parameters.Add("@phongbanma", cmbPhongBan.Text);
             parameters.Add("@trinhdohocvanma", txtHocVan.Text);
-=======
             //parameters.Add("@taikhoan", txtTaiKhoan.Text);
             //if(cmbChucVu.Text.ToString() == "Giám đốc")
             //{
@@ -112,7 +107,6 @@ namespace QuanLyNhanSu
             //parameters.Add("@luongcoban", txtLuong.Text.ToString());
             //parameters.Add("@phongbanma", cmbPhongBan.Text);
             //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
->>>>>>> origin/master
 
             //MessageBox.Show(datngaysinh.Text);
 
@@ -168,12 +162,11 @@ namespace QuanLyNhanSu
             }
         }
 
-<<<<<<< HEAD
         private void txtMa_Click(object sender, EventArgs e)
         {
             txtMa.Clear();
             lblMa.Text = "";
-=======
+        }
         private void txtHoTen_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -183,7 +176,6 @@ namespace QuanLyNhanSu
                 txtHoTen.Text = hoten;
                 datngaysinh.Focus();
             }
->>>>>>> origin/master
         }
     }
 }

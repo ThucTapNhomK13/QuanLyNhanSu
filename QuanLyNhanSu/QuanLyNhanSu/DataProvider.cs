@@ -19,7 +19,7 @@ namespace QuanLyNhanSu
         /// <param name="isProcedure">True - proc , False - query</param>
         /// <param name="parameters">Danh sách tham số vào</param>
         /// <returns></returns>
-        public DataTable Select(string sql, bool isProcedure, Dictionary<string, object> parameters = null)
+        public DataTable Select(string sql, bool isProcedure, Dictionary<string, object> parameters)
         {
             string ConnectString = connectionstring.ConnectString;
             using (SqlConnection sqlCon = new SqlConnection(ConnectString))
@@ -169,7 +169,7 @@ namespace QuanLyNhanSu
         }
 
         // Đăng nhập
-        public int DangNhap(string querry, SqlParameter[] pa = null)
+        public int DangNhap(string querry, SqlParameter[] pa)
         {
             int ret = 0;
             SqlCommand cm = new SqlCommand();
@@ -181,11 +181,12 @@ namespace QuanLyNhanSu
             }
             if(pa != null)
             {
-                cm.Parameters.AddRange(pa);
+                cm.Parameters.Add(pa[0]);
+                cm.Parameters.Add(pa[1]);
             }
             try
             {
-                ret = (Int32)cm.ExecuteScalar();
+                ret = (int)cm.ExecuteScalar();
             }
             catch(Exception)
             {

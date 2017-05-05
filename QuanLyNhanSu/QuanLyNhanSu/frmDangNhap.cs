@@ -21,45 +21,50 @@ namespace QuanLyNhanSu
 
         private void btndangnhap_Click(object sender, EventArgs e)
         {
-
-            //string querry = "select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
-            //SqlConnection cn = new SqlConnection(connectionstring.chuoiketnoi);
-            //SqlCommand cm = new SqlCommand();
-            //cm.CommandText = querry;
-            //cm.Connection = cn;
-            //cm.Parameters.Add(new SqlParameter("@taikhoan", txttentruycap.Text));
-            //cm.Parameters.Add(new SqlParameter("@matkhau", txtmatkhau.Text));
-            //cn.Open();
-            //int ret = (int)cm.ExecuteScalar();
-            //cn.Close();
-            //if (ret <= 0)
+            //if (txttentruycap.Text == "")
             //{
-            //    MessageBox.Show("Đăng nhập không thành công!");
+            //    MessageBox.Show("Bạn chưa nhập tên truy cập!", "Thông báo", MessageBoxButtons.OK);
+            //    txttentruycap.Focus();
+            //}
+            //else if (txtmatkhau.Text == "")
+            //{
+            //    MessageBox.Show("Bạn chưa nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK);
+            //    txtmatkhau.Focus();
             //}
             //else
             //{
-            //    this.Close();
-            //}
-
             DataProvider dp = new DataProvider();
 
-            string sqlQuery = "select count(*) from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
+            string sqlQuery = "select * from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
+
+            //SqlParameter[] parameters = new SqlParameter[]
+            //{
+            //    new SqlParameter ("@taikhoan", txttentruycap.Text),
+            //    new SqlParameter("@matkhau", txtmatkhau.Text)
+            //};
+            //int i = dp.DangNhap(sqlQuery, parameters);
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@taikhoan", txttentruycap.Text);
             parameters.Add("@matkhau", txtmatkhau.Text);
 
             // Đếm 
-            int i = dp.Select(sqlQuery, false, parameters).Rows.Count ;
 
-            if (i > 0)
+            int i = dp.Select(sqlQuery, false, parameters).Rows.Count;
+
+            if (i == 1)
             {
                 dangnhapthanhcong = true;
+                this.Hide();
+                frmmain frm = new frmmain();
+                frm.ShowDialog();
                 this.Close();
-            }  
+            }
             else
-                MessageBox.Show("Tên người dùng hoặc mật khảu sai", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            {
+                MessageBox.Show("Tên người dùng hoặc mật khẩu sai", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txttentruycap.Focus();
+            }
         }
 
         private void btnthoat_Click(object sender, EventArgs e)
@@ -68,33 +73,19 @@ namespace QuanLyNhanSu
         }
 
 
-        bool mv;
-        int x, y;
-        private void frmdangnhap_MouseUp(object sender, MouseEventArgs e)
-        {
-            mv = false;
-        }
+        //bool mv;
+        //int x, y;
+        //private void frmdangnhap_MouseUp(object sender, MouseEventArgs e)
+        //{
+        //    mv = false;
+        //}
 
-        private void frmdangnhap_MouseDown(object sender, MouseEventArgs e)
-        {
-            mv = true;
-            x = e.X;
-            y = e.Y;
-        }
-
-        private void frmdangnhap_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mv)
-                this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
-        }
-        
-        private void txttentruycap_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == 9)
-            {
-                txtmatkhau.Focus();
-            }
-        }
+        //private void frmdangnhap_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    mv = true;
+        //    x = e.X;
+        //    y = e.Y;
+        //}
 
         private void txttentruycap_KeyDown(object sender, KeyEventArgs e)
         {
@@ -107,7 +98,7 @@ namespace QuanLyNhanSu
 
         private void txtmatkhau_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
                 txttentruycap.Focus();
             }
@@ -115,7 +106,7 @@ namespace QuanLyNhanSu
 
         private void txtmatkhau_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
                 btndangnhap_Click(sender, e);

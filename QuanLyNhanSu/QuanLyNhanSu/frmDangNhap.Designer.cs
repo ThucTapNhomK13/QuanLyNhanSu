@@ -47,7 +47,7 @@ namespace QuanLyNhanSu
             this.btndangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndangnhap.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btndangnhap.Location = new System.Drawing.Point(44, 310);
+            this.btndangnhap.Location = new System.Drawing.Point(73, 310);
             this.btndangnhap.Name = "btndangnhap";
             this.btndangnhap.Size = new System.Drawing.Size(113, 42);
             this.btndangnhap.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace QuanLyNhanSu
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthoat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnthoat.Location = new System.Drawing.Point(270, 310);
+            this.btnthoat.Location = new System.Drawing.Point(238, 310);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(113, 42);
             this.btnthoat.TabIndex = 3;
@@ -115,7 +115,6 @@ namespace QuanLyNhanSu
             this.txttentruycap.TabIndex = 0;
             this.txttentruycap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txttentruycap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttentruycap_KeyDown);
-            this.txttentruycap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttentruycap_KeyPress);
             // 
             // label3
             // 
@@ -153,12 +152,10 @@ namespace QuanLyNhanSu
             this.Controls.Add(this.btnthoat);
             this.Controls.Add(this.btndangnhap);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
             this.Name = "frmdangnhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
