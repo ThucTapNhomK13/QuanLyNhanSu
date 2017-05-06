@@ -21,14 +21,11 @@ namespace QuanLyNhanSu
         private bool XuLyDuLieu ()
         {
 
-            if (!XuLyChuoi.KiemTraMa(txtMa.Text))
+            if (!XuLyChuoi.KiemTraMa(txtMatKhau.Text))
             {
                 lblMa.Text = "Lỗi";
                 return false;
             }
-
-
-
 
             if (!XuLyChuoi.KiemTraHoTen(txtHoTen.Text))
             {
@@ -49,14 +46,54 @@ namespace QuanLyNhanSu
             }
             return true;
         }
-        private void frmThemNhanSu_Load(object sender, EventArgs e)
+
+        public void LoadLuong()
         {
             DataProvider dp = new DataProvider();
-            string sql = "select tenphongban from phongban";
+            string sql = "select luongcoban from luong";
+            DataTable dt = new DataTable();
+            dt = dp.GetData(sql);
+            cmbLuong.DataSource = dt;
+            cmbLuong.DisplayMember = "luongcoban";
+            cmbLuong.ValueMember = "luongcoban";
+        }
+        public void LoadPhongBan()
+        {
+            DataProvider dp = new DataProvider();
+            string sql = "select ma, tenphongban from phongban";
             DataTable dt = new DataTable();
             dt = dp.GetData(sql);
             cmbPhongBan.DataSource = dt;
             cmbPhongBan.DisplayMember = "tenphongban";
+            cmbPhongBan.ValueMember = "ma";
+        }
+
+        public void LoadHocVan()
+        {
+            DataProvider dp = new DataProvider();
+            string sql = "select ma, tentrinhdohocvan from trinhdohocvan";
+            DataTable dt = new DataTable();
+            dt = dp.GetData(sql);
+            cmbHocVan.DataSource = dt;
+            cmbHocVan.DisplayMember = "tentrinhdohocvan";
+            cmbHocVan.ValueMember = "ma";
+        }
+        public void LoadChucVu()
+        {
+            DataProvider dp = new DataProvider();
+            string sql = "select ma, tenchucvu from chucvu";
+            DataTable dt = new DataTable();
+            dt = dp.GetData(sql);
+            cmbChucVu.DataSource = dt;
+            cmbPhongBan.DisplayMember = "tenchucvu";
+            cmbChucVu.ValueMember = "ma";
+        }
+        private void frmThemNhanSu_Load(object sender, EventArgs e)
+        {
+            LoadLuong();
+            LoadPhongBan();
+            LoadHocVan();
+            LoadChucVu();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -71,18 +108,10 @@ namespace QuanLyNhanSu
             // ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvuma luongcoban phongbanma trinhdohocvanma
             DataProvider dbCon = new DataProvider();
 
-            string sqlQuery = "INSERT INTO nhanvien ";
-            sqlQuery += " ( ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan "; 
-            sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
-            sqlQuery += " VALUES ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ";
-            sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
-            sqlQuery += "(ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai)";
-            //sqlQuery += ", taikhoan,chucvuma, luongcoban, phongbanma, trinhdohocvanma) ";
-            sqlQuery += "VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai)";
-            //sqlQuery += " , @taikhoan,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
+            string sqlQuery = "INSERT INTO nhanvien(hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai, taikhoan, matkhau, chucvuma, luongcoban, phongbanma, trinhdohocvanma) ";
+            sqlQuery += " VALUES ( @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan, @matkhau, @chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@ma", txtMa.Text);
             parameters.Add("@hoten", txtHoTen.Text);
             parameters.Add("@ngaysinh", datngaysinh.Text.ToString());
             parameters.Add("@quequan",cmbQueQuan.Text);
@@ -93,27 +122,16 @@ namespace QuanLyNhanSu
             parameters.Add("@dantoc", cmbDanToc.Text);
             parameters.Add("@sodienthoai", txtSDT.Text);
             parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            parameters.Add("@chucvuma", cmbChucVu.Text);
-            parameters.Add("@luongcoban", txtLuong.Text);
-            parameters.Add("@phongbanma", cmbPhongBan.Text);
-            parameters.Add("@trinhdohocvanma", txtHocVan.Text);
-            //parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            //if(cmbChucVu.Text.ToString() == "Giám đốc")
-            //{
-            //    parameters.Add("@chucvuma", "CV01");
-            //}
-
-            
-            //parameters.Add("@luongcoban", txtLuong.Text.ToString());
-            //parameters.Add("@phongbanma", cmbPhongBan.Text);
-            //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
-
-            //MessageBox.Show(datngaysinh.Text);
+            parameters.Add("@matkhau", txtMatKhau.Text);
+            parameters.Add("@chucvuma", cmbChucVu.SelectedValue.ToString());
+            parameters.Add("@luongcoban", cmbLuong.SelectedValue.ToString());
+            parameters.Add("@phongbanma", cmbPhongBan.SelectedValue.ToString());
+            parameters.Add("@trinhdohocvanma", cmbHocVan.SelectedValue.ToString());
 
             if (dbCon.InsertUpdateDelete(sqlQuery, parameters, false))
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm thành công!", "Thông báo");
             else
-                MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm không thành công!", "Lỗi");
 
             this.Close();
         }
@@ -136,16 +154,6 @@ namespace QuanLyNhanSu
             lblTK.Text = "";
         }
 
-        private void txtLuong_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtLuong.Clear();
-        }
-
-        private void txtHocVan_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtHocVan.Clear();
-        }
-
         private void chkNam_CheckedChanged(object sender, EventArgs e)
         {
             if(chkNam.Checked)
@@ -164,7 +172,7 @@ namespace QuanLyNhanSu
 
         private void txtMa_Click(object sender, EventArgs e)
         {
-            txtMa.Clear();
+            txtMatKhau.Clear();
             lblMa.Text = "";
         }
         private void txtHoTen_KeyDown(object sender, KeyEventArgs e)

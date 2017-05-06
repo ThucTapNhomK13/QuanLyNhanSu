@@ -102,7 +102,6 @@ namespace QuanLyNhanSu
             this.txtmatkhau.Size = new System.Drawing.Size(339, 31);
             this.txtmatkhau.TabIndex = 1;
             this.txtmatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtmatkhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtmatkhau_KeyDown);
             this.txtmatkhau.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtmatkhau_KeyUp);
             // 
             // txttentruycap

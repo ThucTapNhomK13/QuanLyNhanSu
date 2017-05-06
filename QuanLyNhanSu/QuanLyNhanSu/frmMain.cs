@@ -22,11 +22,8 @@ namespace QuanLyNhanSu
             using (frmdangnhap dn = new frmdangnhap())
             {
                 dn.ShowDialog();
-                if (dn.dangnhapthanhcong)
-                {
-                    this.Close();
-                }
-            }                
+            }
+            this.Show();
         }
 
         private void itemtimkiem_Click(object sender, EventArgs e)
@@ -46,6 +43,7 @@ namespace QuanLyNhanSu
         private void itemsuanhansu_Click(object sender, EventArgs e)
         {
             dgvNV.DataSource = GetData();
+            dgvNV.ClearSelection();
             dgvNV.Visible = true;
             btnsua.Visible = true;
             btnxoa.Visible = false;
@@ -87,6 +85,7 @@ namespace QuanLyNhanSu
         private void frmmain_Activated(object sender, EventArgs e)
         {
             dgvNV.DataSource = GetData();
+            dgvNV.ClearSelection();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -95,7 +94,7 @@ namespace QuanLyNhanSu
             {
                 int selectIndex = dgvNV.SelectedRows[0].Index;
                 // Lay ma trong datagridview o cot dau tien 
-                string id = dgvNV[0, selectIndex].Value.ToString();
+                int id = int.Parse(dgvNV[0, selectIndex].Value.ToString());
                 frmSuaNhanSu frmsua = new frmSuaNhanSu(id);
                 frmsua.ShowDialog();
             }

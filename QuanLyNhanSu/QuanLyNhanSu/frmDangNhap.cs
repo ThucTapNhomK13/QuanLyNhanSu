@@ -13,7 +13,6 @@ namespace QuanLyNhanSu
 {
     public partial class frmdangnhap : Form
     {
-        public bool dangnhapthanhcong = false;
         public frmdangnhap()
         {
             InitializeComponent();
@@ -54,10 +53,11 @@ namespace QuanLyNhanSu
 
             if (i == 1)
             {
-                dangnhapthanhcong = true;
                 this.Hide();
-                frmmain frm = new frmmain();
-                frm.ShowDialog();
+                using (frmmain frm = new frmmain())
+                {
+                    frm.ShowDialog();
+                }
                 this.Close();
             }
             else
@@ -72,21 +72,6 @@ namespace QuanLyNhanSu
             this.Close();
         }
 
-
-        //bool mv;
-        //int x, y;
-        //private void frmdangnhap_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    mv = false;
-        //}
-
-        //private void frmdangnhap_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    mv = true;
-        //    x = e.X;
-        //    y = e.Y;
-        //}
-
         private void txttentruycap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -100,16 +85,8 @@ namespace QuanLyNhanSu
         {
             if (e.KeyCode == Keys.Up)
             {
-                txttentruycap.Focus();
-            }
-        }
-
-        private void txtmatkhau_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
                 e.SuppressKeyPress = true;
-                btndangnhap_Click(sender, e);
+                txttentruycap.Focus();
             }
         }
     }
