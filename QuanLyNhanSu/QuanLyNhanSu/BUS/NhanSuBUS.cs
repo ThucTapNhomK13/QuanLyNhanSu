@@ -64,6 +64,21 @@ namespace QuanLyNhanSu.BUS
             return NhanSuDAO.Instance.Delete(ma);
         }
 
+        public bool CheckId (string ma)
+        {
+            List<NhanSu> ls = MakeToList(NhanSuDAO.Instance.GetById(ma));
 
+            if (ls.Count == 0)
+                return true;
+            return false;
+
+        }
+
+        public NhanSu GetById (string ma)
+        {
+            List<NhanSu> ls = MakeToList(NhanSuDAO.Instance.GetById(ma));
+
+            return ls[0];
+        }
     }
 }

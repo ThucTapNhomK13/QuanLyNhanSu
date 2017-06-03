@@ -82,7 +82,7 @@ namespace QuanLyNhanSu.DAO
             string sql = "insert into nhanvien ";
             sql += " (ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai, taikhoan, luongcoban, chucvuma, phongbanma, trinhdohocvanma) ";
             sql += " values ";
-            sql += " ma=@ma, hoten=@hoten, ngaysinh=@ngaysinh, quequan = @quequan, gioitinh=@gioitinh, dantoc=@dantoc, sodienthoai=@sodienthoai, taikhoan=@taikhoan, luongcoban=@luong, chucvuma=@chucvu, phongban=@phonban, trinhdohocvan=@hocvan";
+            sql += " ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan, @luong, @chucvu, @phongban, @hocvan )";
 
             Dictionary<string, object> para = new Dictionary<string, object>();
             para.Add("@ma", ns.Ma);
@@ -105,8 +105,8 @@ namespace QuanLyNhanSu.DAO
         {
             string sql = "update nhanvien ";
             sql += " set ";
-            sql += " hoten=@hoten, ngaysinh=@ngaysinh, quequan = @quequan, gioitinh=@gioitinh, dantoc=@dantoc, sodienthoai=@sodienthoai, taikhoan=@taikhoan, luongcoban=@luong, chucvuma=@chucvu, phongban=@phonban, trinhdohocvan=@hocvan ";
-            sql += " where ma = @ma ";
+            sql += " hoten = @hoten, ngaysinh = @ngaysinh, quequan = @quequan, gioitinh = @gioitinh, dantoc = @dantoc, sodienthoai = @sodienthoai, taikhoan = @taikhoan, luongcoban = @luong, chucvuma = @chucvu, phongbanma = @phongban, trinhdohocvanma = @hocvan ";
+            sql += " where ma like @ma ";
 
             Dictionary<string, object> para = new Dictionary<string, object>();
             para.Add("@ma", ns.Ma);
@@ -134,6 +134,15 @@ namespace QuanLyNhanSu.DAO
             para.Add("@ma", ma);
             
             return DataProvider.Instance.InsertUpdateDelete(sql, para, false);
+        }
+
+        public DataTable GetById (string ma)
+        {
+            string sql = "select * from nhanvien where ma like @ma";
+            Dictionary<string, object> para = new Dictionary<string, object>();
+            para.Add("@ma", ma);
+
+            return DataProvider.Instance.Select(sql, false, para);
         }
     }
 }

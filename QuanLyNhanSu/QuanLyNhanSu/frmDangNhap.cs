@@ -27,7 +27,6 @@ namespace QuanLyNhanSu
             TaiKhoan tk = new TaiKhoan(txttentruycap.Text.Trim(), txtmatkhau.Text.Trim());
             if (TaiKhoanBUS.Instance.DangNhap(tk))
             {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 frmmain frMain = new frmmain();
                 frMain.ShowDialog();

@@ -100,7 +100,7 @@
             // itemDangXuat
             // 
             this.itemDangXuat.Name = "itemDangXuat";
-            this.itemDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.itemDangXuat.Size = new System.Drawing.Size(137, 22);
             this.itemDangXuat.Text = "Đăng xuất";
             this.itemDangXuat.Click += new System.EventHandler(this.itemDangXuat_Click);
             // 
@@ -199,27 +199,34 @@
             // clMa
             // 
             this.clMa.DataPropertyName = "Ma";
+            this.clMa.FillWeight = 152.2843F;
             this.clMa.HeaderText = "Mã";
             this.clMa.Name = "clMa";
             this.clMa.ReadOnly = true;
             // 
             // clHoTen
             // 
+            this.clHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clHoTen.DataPropertyName = "HoTen";
+            this.clHoTen.FillWeight = 95.24689F;
             this.clHoTen.HeaderText = "Họ tên";
             this.clHoTen.Name = "clHoTen";
             this.clHoTen.ReadOnly = true;
             // 
             // clNgaySinh
             // 
+            this.clNgaySinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clNgaySinh.DataPropertyName = "NgaySinh";
+            this.clNgaySinh.FillWeight = 95.24689F;
             this.clNgaySinh.HeaderText = "Ngày sinh";
             this.clNgaySinh.Name = "clNgaySinh";
             this.clNgaySinh.ReadOnly = true;
             // 
             // clQueQuan
             // 
+            this.clQueQuan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.clQueQuan.DataPropertyName = "QueQuan";
+            this.clQueQuan.FillWeight = 95.24689F;
             this.clQueQuan.HeaderText = "Quê quán";
             this.clQueQuan.Name = "clQueQuan";
             this.clQueQuan.ReadOnly = true;
@@ -227,6 +234,7 @@
             // clGioiTinh
             // 
             this.clGioiTinh.DataPropertyName = "GioiTinh";
+            this.clGioiTinh.FillWeight = 95.24689F;
             this.clGioiTinh.HeaderText = "Giới tính";
             this.clGioiTinh.Name = "clGioiTinh";
             this.clGioiTinh.ReadOnly = true;
@@ -234,6 +242,7 @@
             // clDanToc
             // 
             this.clDanToc.DataPropertyName = "DanToc";
+            this.clDanToc.FillWeight = 95.24689F;
             this.clDanToc.HeaderText = "Dân tộc";
             this.clDanToc.Name = "clDanToc";
             this.clDanToc.ReadOnly = true;
@@ -241,6 +250,7 @@
             // clSDT
             // 
             this.clSDT.DataPropertyName = "SoDienThoai";
+            this.clSDT.FillWeight = 95.24689F;
             this.clSDT.HeaderText = "SDT";
             this.clSDT.Name = "clSDT";
             this.clSDT.ReadOnly = true;
@@ -248,6 +258,7 @@
             // clTaiKhoan
             // 
             this.clTaiKhoan.DataPropertyName = "TaiKhoan";
+            this.clTaiKhoan.FillWeight = 95.24689F;
             this.clTaiKhoan.HeaderText = "Tài khoản";
             this.clTaiKhoan.Name = "clTaiKhoan";
             this.clTaiKhoan.ReadOnly = true;
@@ -255,6 +266,7 @@
             // clLuong
             // 
             this.clLuong.DataPropertyName = "LuongConBan";
+            this.clLuong.FillWeight = 95.24689F;
             this.clLuong.HeaderText = "Lương";
             this.clLuong.Name = "clLuong";
             this.clLuong.ReadOnly = true;
@@ -262,6 +274,7 @@
             // clChuVu
             // 
             this.clChuVu.DataPropertyName = "ChuVuMa";
+            this.clChuVu.FillWeight = 95.24689F;
             this.clChuVu.HeaderText = "Mã CV";
             this.clChuVu.Name = "clChuVu";
             this.clChuVu.ReadOnly = true;
@@ -269,6 +282,7 @@
             // clPhongBan
             // 
             this.clPhongBan.DataPropertyName = "PhongBanMa";
+            this.clPhongBan.FillWeight = 95.24689F;
             this.clPhongBan.HeaderText = "Mã PB";
             this.clPhongBan.Name = "clPhongBan";
             this.clPhongBan.ReadOnly = true;
@@ -276,6 +290,7 @@
             // clHocVan
             // 
             this.clHocVan.DataPropertyName = "HocVanMa";
+            this.clHocVan.FillWeight = 95.24689F;
             this.clHocVan.HeaderText = "Mã HV";
             this.clHocVan.Name = "clHocVan";
             this.clHocVan.ReadOnly = true;

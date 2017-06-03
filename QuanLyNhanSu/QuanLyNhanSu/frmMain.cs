@@ -68,14 +68,11 @@ namespace QuanLyNhanSu
             frmhd.ShowDialog();
         }
 
-        private void frmmain_Load(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void frmmain_Activated(object sender, EventArgs e)
         {
-            //dgvNV.DataSource = GetData();
+            LoadNhanSu();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -83,10 +80,10 @@ namespace QuanLyNhanSu
             if (dgvNV.SelectedRows.Count > 0)
             {
                 int selectIndex = dgvNV.SelectedRows[0].Index;
-                // Lay ma trong datagridview o cot dau tien 
                 string id = dgvNV[0, selectIndex].Value.ToString();
                 frmSuaNhanSu frmsua = new frmSuaNhanSu(id);
                 frmsua.ShowDialog();
+                
             }
             else
             {
@@ -119,6 +116,11 @@ namespace QuanLyNhanSu
         private void itemDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmmain_Load(object sender, EventArgs e)
+        {
+            dgvNV.Visible = true;
         }
     }
 }

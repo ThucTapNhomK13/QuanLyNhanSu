@@ -35,7 +35,6 @@
             this.chkNam = new System.Windows.Forms.CheckBox();
             this.cmbQueQuan = new System.Windows.Forms.ComboBox();
             this.datngaysinh = new System.Windows.Forms.DateTimePicker();
-            this.txtHocVan = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtLuong = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
+            this.cmbHocVan = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cmbPhongBan
@@ -161,15 +161,6 @@
             this.datngaysinh.Size = new System.Drawing.Size(337, 22);
             this.datngaysinh.TabIndex = 51;
             this.datngaysinh.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
-            // 
-            // txtHocVan
-            // 
-            this.txtHocVan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHocVan.Location = new System.Drawing.Point(706, 314);
-            this.txtHocVan.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHocVan.Name = "txtHocVan";
-            this.txtHocVan.Size = new System.Drawing.Size(291, 22);
-            this.txtHocVan.TabIndex = 50;
             // 
             // label12
             // 
@@ -374,11 +365,20 @@
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
+            // cmbHocVan
+            // 
+            this.cmbHocVan.FormattingEnabled = true;
+            this.cmbHocVan.Location = new System.Drawing.Point(706, 317);
+            this.cmbHocVan.Name = "cmbHocVan";
+            this.cmbHocVan.Size = new System.Drawing.Size(291, 21);
+            this.cmbHocVan.TabIndex = 60;
+            // 
             // frmSuaNhanSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 476);
+            this.Controls.Add(this.cmbHocVan);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.cmbPhongBan);
@@ -388,7 +388,6 @@
             this.Controls.Add(this.chkNam);
             this.Controls.Add(this.cmbQueQuan);
             this.Controls.Add(this.datngaysinh);
-            this.Controls.Add(this.txtHocVan);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtLuong);
@@ -424,7 +423,6 @@
         private System.Windows.Forms.CheckBox chkNam;
         private System.Windows.Forms.ComboBox cmbQueQuan;
         private System.Windows.Forms.DateTimePicker datngaysinh;
-        private System.Windows.Forms.TextBox txtHocVan;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLuong;
@@ -444,5 +442,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.ComboBox cmbHocVan;
     }
 }

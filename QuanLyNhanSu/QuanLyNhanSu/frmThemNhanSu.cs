@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+using QuanLyNhanSu.BUS;
+using QuanLyNhanSu.Model;
+
 namespace QuanLyNhanSu
 {
     public partial class frmThemNhanSu : Form
@@ -18,6 +21,48 @@ namespace QuanLyNhanSu
             InitializeComponent();
         }
 
+        private void LoadChucVu ()
+        {
+            cmbChucVu.DataSource = ChucVuBUS.Instance.GetAll();
+            cmbChucVu.DisplayMember = "TenChucVu";
+            cmbChucVu.ValueMember = "Ma";
+        }
+
+        private void LoadHocVan ()
+        {
+            cmbHocVan.DataSource = HocVanBUS.Instance.GetAll();
+            cmbHocVan.DisplayMember = "TrinhDoHocVan";
+            cmbHocVan.ValueMember = "Ma";
+        }
+
+        private void LoadPhongBan ()
+        {
+            cmbPhongBan.DataSource = PhongBanBUS.Instance.GetAll();
+            cmbPhongBan.DisplayMember = "TenPhongBan";
+            cmbPhongBan.ValueMember = "Ma";
+        }
+
+        private NhanSu SetNhanSu ()
+        {
+            NhanSu ns = new NhanSu();
+            ns.Ma = txtMa.Text.Trim();
+            ns.HoTen = txtHoTen.Text.Trim();
+            ns.NgaySinh = datngaysinh.Value;
+            ns.QueQuan = cmbQueQuan.SelectedItem as string;
+            ns.DanToc = cmbDanToc.SelectedItem as string;
+            ns.SoDienThoai = txtSDT.Text.Trim();
+            ns.TaiKhoan = txtTaiKhoan.Text.Trim();
+            ns.GioiTinh = chkNam.Checked ? chkNam.Text : chkNu.Text;
+
+            ns.LuongConBan = float.Parse(txtLuong.Text.Trim());
+            ns.PhongBanMa = (cmbPhongBan.SelectedItem as PhongBan).Ma;
+            ns.ChuVuMa = (cmbChucVu.SelectedItem as ChucVu).Ma;
+            ns.HocVanMa = (cmbHocVan.SelectedItem as HocVan).Ma;
+
+            return ns;
+        }
+
+
         private bool XuLyDuLieu ()
         {
 
@@ -26,9 +71,6 @@ namespace QuanLyNhanSu
                 lblMa.Text = "Lỗi";
                 return false;
             }
-
-
-
 
             if (!XuLyChuoi.KiemTraHoTen(txtHoTen.Text))
             {
@@ -51,12 +93,9 @@ namespace QuanLyNhanSu
         }
         private void frmThemNhanSu_Load(object sender, EventArgs e)
         {
-            //DataProvider dp = new DataProvider();
-            //string sql = "select tenphongban from phongban";
-            //DataTable dt = new DataTable();
-            //dt = dp.GetData(sql);
-            //cmbPhongBan.DataSource = dt;
-            //cmbPhongBan.DisplayMember = "tenphongban";
+            LoadChucVu();
+            LoadHocVan();
+            LoadPhongBan();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -66,56 +105,32 @@ namespace QuanLyNhanSu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //if (!XuLyDuLieu())
-            //    return;
-            //// ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvuma luongcoban phongbanma trinhdohocvanma
-            //DataProvider dbCon = new DataProvider();
-
-            //string sqlQuery = "INSERT INTO nhanvien ";
-            //sqlQuery += " ( ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan "; 
-            //sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
-            //sqlQuery += " VALUES ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ";
-            //sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
-            //sqlQuery += "(ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai)";
-            ////sqlQuery += ", taikhoan,chucvuma, luongcoban, phongbanma, trinhdohocvanma) ";
-            //sqlQuery += "VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai)";
-            ////sqlQuery += " , @taikhoan,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
-
-            //Dictionary<string, object> parameters = new Dictionary<string, object>();
-            //parameters.Add("@ma", txtMa.Text);
-            //parameters.Add("@hoten", txtHoTen.Text);
-            //parameters.Add("@ngaysinh", datngaysinh.Text.ToString());
-            //parameters.Add("@quequan",cmbQueQuan.Text);
-            //if(chkNam.Checked)
-            //    parameters.Add("@gioitinh", chkNam.Text);
-            //else
-            //    parameters.Add("@gioitinh", chkNu.Text);
-            //parameters.Add("@dantoc", cmbDanToc.Text);
-            //parameters.Add("@sodienthoai", txtSDT.Text);
-            //parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            //parameters.Add("@chucvuma", cmbChucVu.Text);
-            //parameters.Add("@luongcoban", txtLuong.Text);
-            //parameters.Add("@phongbanma", cmbPhongBan.Text);
-            //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
-            ////parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            ////if(cmbChucVu.Text.ToString() == "Giám đốc")
-            ////{
-            ////    parameters.Add("@chucvuma", "CV01");
-            ////}
-
             
-            ////parameters.Add("@luongcoban", txtLuong.Text.ToString());
-            ////parameters.Add("@phongbanma", cmbPhongBan.Text);
-            ////parameters.Add("@trinhdohocvanma", txtHocVan.Text);
-
-            ////MessageBox.Show(datngaysinh.Text);
-
-            //if (dbCon.InsertUpdateDelete(sqlQuery, parameters, false))
-            //    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //else
-            //    MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //this.Close();
+            if (!XuLyDuLieu())
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+                NhanSu ns = SetNhanSu();
+                if (NhanSuBUS.Instance.CheckId(ns.Ma))
+                {
+                    if (NhanSuBUS.Instance.Insert(ns))
+                    {
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                txtMa.Focus();
+       
+            
         }
 
         private void txtHoTen_MouseClick(object sender, MouseEventArgs e)
@@ -141,27 +156,7 @@ namespace QuanLyNhanSu
             txtLuong.Clear();
         }
 
-        private void txtHocVan_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtHocVan.Clear();
-        }
-
-        private void chkNam_CheckedChanged(object sender, EventArgs e)
-        {
-            if(chkNam.Checked)
-            {
-                chkNu.Checked = false;
-            }
-        }
-
-        private void chkNu_CheckedChanged(object sender, EventArgs e)
-        {
-            if(chkNu.Checked)
-            {
-                chkNam.Checked = false;
-            }
-        }
-
+        
         private void txtMa_Click(object sender, EventArgs e)
         {
             txtMa.Clear();

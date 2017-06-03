@@ -7,33 +7,38 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
+using QuanLyNhanSu.Model;
+
 namespace QuanLyNhanSu.DAO
 {
-    public class ChucVuDAO
+    public class HocVanDAO
     {
-        private static ChucVuDAO instance;
-        public static ChucVuDAO Instance
+        private static HocVanDAO instance;
+
+        public static HocVanDAO Instance
         {
             get 
             {
                 if (instance == null)
-                    instance = new ChucVuDAO();
-                return ChucVuDAO.instance; 
+                    instance = new HocVanDAO();
+                return HocVanDAO.instance; 
             }
-            private set { ChucVuDAO.instance = value; }
+            private set { HocVanDAO.instance = value; }
         }
-        private ChucVuDAO() { }
+
+        private HocVanDAO() { }
 
         public DataTable GetAll ()
         {
-            string sql = "select * from chucvu ";
+            string sql = "select * from trinhdohocvan";
             return DataProvider.Instance.Select(sql, false);
         }
 
         public DataTable GetById (string id)
         {
-            string sql = "select * from chucvu where ma like @ma";
-            Dictionary<string, object> para = new Dictionary<string, object>();
+            string sql = "select * from trinhdohocvan where ma like @ma";
+            Dictionary<string, object> para = new Dictionary<string,object>();
+            para.Add("@ma", id);
 
             return DataProvider.Instance.Select(sql, false, para);
         }

@@ -46,11 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\ChucVuBUS.cs" />
+    <Compile Include="BUS\HocVanBUS.cs" />
+    <Compile Include="BUS\LuongBUS.cs" />
     <Compile Include="BUS\NhanSuBUS.cs" />
+    <Compile Include="BUS\PhongBanBUS.cs" />
     <Compile Include="BUS\TaiKhoanBUS.cs" />
+    <Compile Include="DAO\ChucVuDAO.cs" />
     <Compile Include="DAO\connectionstring.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\HocVanDAO.cs" />
+    <Compile Include="DAO\LuongDAO.cs" />
     <Compile Include="DAO\NhanSuDAO.cs" />
+    <Compile Include="DAO\PhongBanDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>

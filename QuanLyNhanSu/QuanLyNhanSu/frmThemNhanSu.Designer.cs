@@ -44,7 +44,6 @@
             this.txtLuong = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtHocVan = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -59,6 +58,7 @@
             this.lblHoTen = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
             this.lblTK = new System.Windows.Forms.Label();
+            this.cmbHocVan = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -233,16 +233,6 @@
             this.label11.TabIndex = 20;
             this.label11.Text = "Phòng ban";
             // 
-            // txtHocVan
-            // 
-            this.txtHocVan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHocVan.Location = new System.Drawing.Point(689, 299);
-            this.txtHocVan.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHocVan.Name = "txtHocVan";
-            this.txtHocVan.Size = new System.Drawing.Size(291, 22);
-            this.txtHocVan.TabIndex = 23;
-            this.txtHocVan.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHocVan_MouseClick);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -257,7 +247,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(403, 364);
+            this.btnThem.Location = new System.Drawing.Point(150, 364);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(119, 37);
@@ -269,7 +259,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(556, 364);
+            this.btnThoat.Location = new System.Drawing.Point(368, 364);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(119, 37);
@@ -304,6 +294,7 @@
             "Hải Dương",
             "Hải Phòng",
             "Hòa Bình",
+            "Khác",
             "Nam Định",
             "Nghệ An",
             "Ninh Bình",
@@ -321,6 +312,8 @@
             // chkNam
             // 
             this.chkNam.AutoSize = true;
+            this.chkNam.Checked = true;
+            this.chkNam.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNam.Location = new System.Drawing.Point(150, 193);
             this.chkNam.Margin = new System.Windows.Forms.Padding(4);
@@ -329,7 +322,6 @@
             this.chkNam.TabIndex = 28;
             this.chkNam.Text = "Nam";
             this.chkNam.UseVisualStyleBackColor = true;
-            this.chkNam.CheckedChanged += new System.EventHandler(this.chkNam_CheckedChanged);
             // 
             // chkNu
             // 
@@ -342,13 +334,13 @@
             this.chkNu.TabIndex = 29;
             this.chkNu.Text = "Nữ";
             this.chkNu.UseVisualStyleBackColor = true;
-            this.chkNu.CheckedChanged += new System.EventHandler(this.chkNu_CheckedChanged);
             // 
             // cmbDanToc
             // 
             this.cmbDanToc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDanToc.FormattingEnabled = true;
             this.cmbDanToc.Items.AddRange(new object[] {
+            "Khác",
             "Kinh",
             "Mường",
             "Tày",
@@ -429,11 +421,20 @@
             this.lblTK.Size = new System.Drawing.Size(0, 16);
             this.lblTK.TabIndex = 36;
             // 
+            // cmbHocVan
+            // 
+            this.cmbHocVan.FormattingEnabled = true;
+            this.cmbHocVan.Location = new System.Drawing.Point(689, 299);
+            this.cmbHocVan.Name = "cmbHocVan";
+            this.cmbHocVan.Size = new System.Drawing.Size(291, 24);
+            this.cmbHocVan.TabIndex = 37;
+            // 
             // frmThemNhanSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 436);
+            this.Controls.Add(this.cmbHocVan);
             this.Controls.Add(this.lblTK);
             this.Controls.Add(this.lblSDT);
             this.Controls.Add(this.lblHoTen);
@@ -447,7 +448,6 @@
             this.Controls.Add(this.datngaysinh);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.txtHocVan);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtLuong);
@@ -495,7 +495,6 @@
         private System.Windows.Forms.TextBox txtLuong;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtHocVan;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnThoat;
@@ -510,5 +509,6 @@
         private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Label lblSDT;
         private System.Windows.Forms.Label lblTK;
+        private System.Windows.Forms.ComboBox cmbHocVan;
     }
 }
