@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using QuanLyNhanSu.BUS;
+using QuanLyNhanSu.Model;
+
 namespace QuanLyNhanSu
 {
     public partial class frmmain : Form
@@ -17,22 +20,22 @@ namespace QuanLyNhanSu
             InitializeComponent();
         }
 
-        private void itemdangnhap_Click(object sender, EventArgs e)
+        #region Ham
+
+        private void LoadNhanSu ()
         {
-            using (frmdangnhap dn = new frmdangnhap())
-            {
-                dn.ShowDialog();
-                if (dn.dangnhapthanhcong)
-                {
-                    this.Close();
-                }
-            }                
+            dgvNV.DataSource = NhanSuBUS.Instance.GetAll();
         }
+
+        #endregion
 
         private void itemtimkiem_Click(object sender, EventArgs e)
         {
-            frmTimKiem tk = new frmTimKiem();
-            tk.ShowDialog();
+            using (frmTimKiem tk = new frmTimKiem())
+            {
+                tk.ShowDialog();
+            }
+            
         }
 
         private void itemthemnhansumoi_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace QuanLyNhanSu
 
         private void itemsuanhansu_Click(object sender, EventArgs e)
         {
-            dgvNV.DataSource = GetData();
+            LoadNhanSu();
             dgvNV.Visible = true;
             btnsua.Visible = true;
             btnxoa.Visible = false;
@@ -53,7 +56,7 @@ namespace QuanLyNhanSu
 
         private void itemxoanhansu_Click(object sender, EventArgs e)
         {
-            dgvNV.DataSource = GetData();
+            LoadNhanSu();
             dgvNV.Visible = true;
             btnsua.Visible = false;
             btnxoa.Visible = true;
@@ -70,23 +73,9 @@ namespace QuanLyNhanSu
             
         }
 
-        private DataTable GetData ()
-        {
-            DataProvider dbA = new DataProvider();
-
-            string sqlQuery = " select ";
-            sqlQuery += " ma , hoten , ngaysinh, gioitinh , ";
-            sqlQuery += " quequan , dantoc ,  sodienthoai , ";
-            sqlQuery += " taikhoan , chucvuma as chucvu , luongcoban as luong, ";
-            sqlQuery += " phongbanma as phongban ,  trinhdohocvanma as hocvan";
-            sqlQuery += " from nhanvien";
-
-            return dbA.Select(sqlQuery, false, null);
-        }
-
         private void frmmain_Activated(object sender, EventArgs e)
         {
-            dgvNV.DataSource = GetData();
+            //dgvNV.DataSource = GetData();
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -110,22 +99,18 @@ namespace QuanLyNhanSu
             if (dgvNV.SelectedRows.Count > 0)
             {
                 int selectIndex = dgvNV.SelectedRows[0].Index;
-                // 
                 string id = dgvNV[0, selectIndex].Value.ToString();
 
-                DataProvider dbA = new DataProvider();
-
-                string sqlQuery = " Delete nhanvien ";
-                sqlQuery += " where ma=@ma ";
-
-                Dictionary<string, object> parameters = new Dictionary<string, object>();
-                parameters.Add("@ma", id);
-
-                if (dbA.InsertUpdateDelete(sqlQuery, parameters, false))
+                if (NhanSuBUS.Instance.Delete(id))
+                {
                     MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadNhanSu();
+                }
                 else
-                    MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                {
+                    MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
             else
                 MessageBox.Show("Bạn chưa chọn nhân viên cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

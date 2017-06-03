@@ -29,20 +29,8 @@
         private void InitializeComponent()
         {
             this.dgvNV = new System.Windows.Forms.DataGridView();
-            this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaysinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quequan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dantoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sodienthoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taikhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chucvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phongban = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hocvan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemhethong = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemdangnhap = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.itemquanlynguoidung = new System.Windows.Forms.ToolStripMenuItem();
             this.itemtimkiem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemthemnhansumoi = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +41,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnsua = new System.Windows.Forms.Button();
             this.btnxoa = new System.Windows.Forms.Button();
-            this.itemDangXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.clMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clQueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clGioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDanToc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clChuVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clHocVan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,21 +64,22 @@
             this.dgvNV.AllowUserToResizeColumns = false;
             this.dgvNV.AllowUserToResizeRows = false;
             this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ma,
-            this.hoten,
-            this.ngaysinh,
-            this.gioitinh,
-            this.quequan,
-            this.dantoc,
-            this.sodienthoai,
-            this.taikhoan,
-            this.chucvu,
-            this.luong,
-            this.phongban,
-            this.hocvan});
+            this.clMa,
+            this.clHoTen,
+            this.clNgaySinh,
+            this.clQueQuan,
+            this.clGioiTinh,
+            this.clDanToc,
+            this.clSDT,
+            this.clTaiKhoan,
+            this.clLuong,
+            this.clChuVu,
+            this.clPhongBan,
+            this.clHocVan});
             this.dgvNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvNV.Location = new System.Drawing.Point(0, 25);
             this.dgvNV.Name = "dgvNV";
@@ -89,117 +89,20 @@
             this.dgvNV.TabIndex = 1;
             this.dgvNV.Visible = false;
             // 
-            // ma
-            // 
-            this.ma.DataPropertyName = "ma";
-            this.ma.FillWeight = 30F;
-            this.ma.HeaderText = "Mã";
-            this.ma.Name = "ma";
-            this.ma.ReadOnly = true;
-            // 
-            // hoten
-            // 
-            this.hoten.DataPropertyName = "hoten";
-            this.hoten.FillWeight = 54.63992F;
-            this.hoten.HeaderText = "Họ tên";
-            this.hoten.Name = "hoten";
-            this.hoten.ReadOnly = true;
-            // 
-            // ngaysinh
-            // 
-            this.ngaysinh.DataPropertyName = "ngaysinh";
-            this.ngaysinh.FillWeight = 54.63992F;
-            this.ngaysinh.HeaderText = "Ngày sinh";
-            this.ngaysinh.Name = "ngaysinh";
-            this.ngaysinh.ReadOnly = true;
-            // 
-            // gioitinh
-            // 
-            this.gioitinh.DataPropertyName = "gioitinh";
-            this.gioitinh.FillWeight = 54.63992F;
-            this.gioitinh.HeaderText = "Giới tính";
-            this.gioitinh.Name = "gioitinh";
-            this.gioitinh.ReadOnly = true;
-            // 
-            // quequan
-            // 
-            this.quequan.DataPropertyName = "quequan";
-            this.quequan.FillWeight = 54.63992F;
-            this.quequan.HeaderText = "Quê quán";
-            this.quequan.Name = "quequan";
-            this.quequan.ReadOnly = true;
-            // 
-            // dantoc
-            // 
-            this.dantoc.DataPropertyName = "dantoc";
-            this.dantoc.FillWeight = 54.63992F;
-            this.dantoc.HeaderText = "Dân tộc";
-            this.dantoc.Name = "dantoc";
-            this.dantoc.ReadOnly = true;
-            // 
-            // sodienthoai
-            // 
-            this.sodienthoai.DataPropertyName = "sodienthoai";
-            this.sodienthoai.FillWeight = 54.63992F;
-            this.sodienthoai.HeaderText = "Số điện thoại";
-            this.sodienthoai.Name = "sodienthoai";
-            this.sodienthoai.ReadOnly = true;
-            // 
-            // taikhoan
-            // 
-            this.taikhoan.DataPropertyName = "taikhoan";
-            this.taikhoan.FillWeight = 54.63992F;
-            this.taikhoan.HeaderText = "Tài khoản";
-            this.taikhoan.Name = "taikhoan";
-            this.taikhoan.ReadOnly = true;
-            // 
-            // chucvu
-            // 
-            this.chucvu.DataPropertyName = "chucvu";
-            this.chucvu.FillWeight = 54.63992F;
-            this.chucvu.HeaderText = "Chức vụ";
-            this.chucvu.Name = "chucvu";
-            this.chucvu.ReadOnly = true;
-            // 
-            // luong
-            // 
-            this.luong.DataPropertyName = "luong";
-            this.luong.FillWeight = 54.63992F;
-            this.luong.HeaderText = "Lương";
-            this.luong.Name = "luong";
-            this.luong.ReadOnly = true;
-            // 
-            // phongban
-            // 
-            this.phongban.DataPropertyName = "phongban";
-            this.phongban.FillWeight = 54.63992F;
-            this.phongban.HeaderText = "Phòng ban";
-            this.phongban.Name = "phongban";
-            this.phongban.ReadOnly = true;
-            // 
-            // hocvan
-            // 
-            this.hocvan.DataPropertyName = "hocvan";
-            this.hocvan.FillWeight = 54.63992F;
-            this.hocvan.HeaderText = "Học vấn";
-            this.hocvan.Name = "hocvan";
-            this.hocvan.ReadOnly = true;
-            // 
             // itemhethong
             // 
             this.itemhethong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemdangnhap,
             this.itemDangXuat});
             this.itemhethong.Name = "itemhethong";
             this.itemhethong.Size = new System.Drawing.Size(74, 21);
             this.itemhethong.Text = "Hệ thống";
             // 
-            // itemdangnhap
+            // itemDangXuat
             // 
-            this.itemdangnhap.Name = "itemdangnhap";
-            this.itemdangnhap.Size = new System.Drawing.Size(152, 22);
-            this.itemdangnhap.Text = "Đăng nhập";
-            this.itemdangnhap.Click += new System.EventHandler(this.itemdangnhap_Click);
+            this.itemDangXuat.Name = "itemDangXuat";
+            this.itemDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.itemDangXuat.Text = "Đăng xuất";
+            this.itemDangXuat.Click += new System.EventHandler(this.itemDangXuat_Click);
             // 
             // itemquanlynguoidung
             // 
@@ -293,12 +196,89 @@
             this.btnxoa.Visible = false;
             this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
             // 
-            // itemDangXuat
+            // clMa
             // 
-            this.itemDangXuat.Name = "itemDangXuat";
-            this.itemDangXuat.Size = new System.Drawing.Size(152, 22);
-            this.itemDangXuat.Text = "Đăng xuất";
-            this.itemDangXuat.Click += new System.EventHandler(this.itemDangXuat_Click);
+            this.clMa.DataPropertyName = "Ma";
+            this.clMa.HeaderText = "Mã";
+            this.clMa.Name = "clMa";
+            this.clMa.ReadOnly = true;
+            // 
+            // clHoTen
+            // 
+            this.clHoTen.DataPropertyName = "HoTen";
+            this.clHoTen.HeaderText = "Họ tên";
+            this.clHoTen.Name = "clHoTen";
+            this.clHoTen.ReadOnly = true;
+            // 
+            // clNgaySinh
+            // 
+            this.clNgaySinh.DataPropertyName = "NgaySinh";
+            this.clNgaySinh.HeaderText = "Ngày sinh";
+            this.clNgaySinh.Name = "clNgaySinh";
+            this.clNgaySinh.ReadOnly = true;
+            // 
+            // clQueQuan
+            // 
+            this.clQueQuan.DataPropertyName = "QueQuan";
+            this.clQueQuan.HeaderText = "Quê quán";
+            this.clQueQuan.Name = "clQueQuan";
+            this.clQueQuan.ReadOnly = true;
+            // 
+            // clGioiTinh
+            // 
+            this.clGioiTinh.DataPropertyName = "GioiTinh";
+            this.clGioiTinh.HeaderText = "Giới tính";
+            this.clGioiTinh.Name = "clGioiTinh";
+            this.clGioiTinh.ReadOnly = true;
+            // 
+            // clDanToc
+            // 
+            this.clDanToc.DataPropertyName = "DanToc";
+            this.clDanToc.HeaderText = "Dân tộc";
+            this.clDanToc.Name = "clDanToc";
+            this.clDanToc.ReadOnly = true;
+            // 
+            // clSDT
+            // 
+            this.clSDT.DataPropertyName = "SoDienThoai";
+            this.clSDT.HeaderText = "SDT";
+            this.clSDT.Name = "clSDT";
+            this.clSDT.ReadOnly = true;
+            // 
+            // clTaiKhoan
+            // 
+            this.clTaiKhoan.DataPropertyName = "TaiKhoan";
+            this.clTaiKhoan.HeaderText = "Tài khoản";
+            this.clTaiKhoan.Name = "clTaiKhoan";
+            this.clTaiKhoan.ReadOnly = true;
+            // 
+            // clLuong
+            // 
+            this.clLuong.DataPropertyName = "LuongConBan";
+            this.clLuong.HeaderText = "Lương";
+            this.clLuong.Name = "clLuong";
+            this.clLuong.ReadOnly = true;
+            // 
+            // clChuVu
+            // 
+            this.clChuVu.DataPropertyName = "ChuVuMa";
+            this.clChuVu.HeaderText = "Mã CV";
+            this.clChuVu.Name = "clChuVu";
+            this.clChuVu.ReadOnly = true;
+            // 
+            // clPhongBan
+            // 
+            this.clPhongBan.DataPropertyName = "PhongBanMa";
+            this.clPhongBan.HeaderText = "Mã PB";
+            this.clPhongBan.Name = "clPhongBan";
+            this.clPhongBan.ReadOnly = true;
+            // 
+            // clHocVan
+            // 
+            this.clHocVan.DataPropertyName = "HocVanMa";
+            this.clHocVan.HeaderText = "Mã HV";
+            this.clHocVan.Name = "clHocVan";
+            this.clHocVan.ReadOnly = true;
             // 
             // frmmain
             // 
@@ -329,7 +309,6 @@
 
         private System.Windows.Forms.DataGridView dgvNV;
         private System.Windows.Forms.ToolStripMenuItem itemhethong;
-        private System.Windows.Forms.ToolStripMenuItem itemdangnhap;
         private System.Windows.Forms.ToolStripMenuItem itemquanlynguoidung;
         private System.Windows.Forms.ToolStripMenuItem itemtimkiem;
         private System.Windows.Forms.ToolStripMenuItem itemthemnhansumoi;
@@ -338,20 +317,20 @@
         private System.Windows.Forms.ToolStripMenuItem itemhuongdansudung;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaysinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gioitinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quequan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dantoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sodienthoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn taikhoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chucvu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn luong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phongban;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hocvan;
         private System.Windows.Forms.Button btnsua;
         private System.Windows.Forms.Button btnxoa;
         private System.Windows.Forms.ToolStripMenuItem itemDangXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clMa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clHoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clQueQuan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clGioiTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDanToc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clChuVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPhongBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clHocVan;
     }
 }

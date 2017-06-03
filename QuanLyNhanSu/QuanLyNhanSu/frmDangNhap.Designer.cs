@@ -47,9 +47,9 @@ namespace QuanLyNhanSu
             this.btndangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndangnhap.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btndangnhap.Location = new System.Drawing.Point(73, 310);
+            this.btndangnhap.Location = new System.Drawing.Point(44, 310);
             this.btndangnhap.Name = "btndangnhap";
-            this.btndangnhap.Size = new System.Drawing.Size(113, 42);
+            this.btndangnhap.Size = new System.Drawing.Size(144, 42);
             this.btndangnhap.TabIndex = 2;
             this.btndangnhap.Text = "Đăng nhập";
             this.btndangnhap.UseVisualStyleBackColor = false;
@@ -63,9 +63,9 @@ namespace QuanLyNhanSu
             this.btnthoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnthoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthoat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnthoat.Location = new System.Drawing.Point(238, 310);
+            this.btnthoat.Location = new System.Drawing.Point(243, 310);
             this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(113, 42);
+            this.btnthoat.Size = new System.Drawing.Size(140, 42);
             this.btnthoat.TabIndex = 3;
             this.btnthoat.Text = "Thoát";
             this.btnthoat.UseVisualStyleBackColor = false;
@@ -80,6 +80,9 @@ namespace QuanLyNhanSu
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(422, 94);
             this.panel1.TabIndex = 6;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // label1
             // 
@@ -156,6 +159,9 @@ namespace QuanLyNhanSu
             this.Name = "frmdangnhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmdangnhap_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

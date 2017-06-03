@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="connectionstring.cs" />
-    <Compile Include="DataProvider.cs" />
+    <Compile Include="BUS\NhanSuBUS.cs" />
+    <Compile Include="BUS\TaiKhoanBUS.cs" />
+    <Compile Include="DAO\connectionstring.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\NhanSuDAO.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,9 +88,15 @@
     <Compile Include="frmTimKiem.Designer.cs">
       <DependentUpon>frmTimKiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\HocVan.cs" />
+    <Compile Include="Model\ChucVu.cs" />
+    <Compile Include="Model\Luong.cs" />
+    <Compile Include="Model\NhanSu.cs" />
+    <Compile Include="Model\PhongBan.cs" />
+    <Compile Include="Model\TaiKhoan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XuLyChuoi.cs" />
+    <Compile Include="Untity\XuLyChuoi.cs" />
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +137,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

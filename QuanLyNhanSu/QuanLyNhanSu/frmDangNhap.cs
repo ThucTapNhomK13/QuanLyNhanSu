@@ -9,60 +9,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+using QuanLyNhanSu.Model;
+using QuanLyNhanSu.BUS;
+
 namespace QuanLyNhanSu
 {
     public partial class frmdangnhap : Form
     {
-        public bool dangnhapthanhcong = false;
         public frmdangnhap()
         {
             InitializeComponent();
         }
 
+        #region Event
         private void btndangnhap_Click(object sender, EventArgs e)
         {
-            //if (txttentruycap.Text == "")
-            //{
-            //    MessageBox.Show("Bạn chưa nhập tên truy cập!", "Thông báo", MessageBoxButtons.OK);
-            //    txttentruycap.Focus();
-            //}
-            //else if (txtmatkhau.Text == "")
-            //{
-            //    MessageBox.Show("Bạn chưa nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK);
-            //    txtmatkhau.Focus();
-            //}
-            //else
-            //{
-            DataProvider dp = new DataProvider();
-
-            string sqlQuery = "select * from nhanvien where taikhoan = @taikhoan and matkhau = @matkhau";
-
-            //SqlParameter[] parameters = new SqlParameter[]
-            //{
-            //    new SqlParameter ("@taikhoan", txttentruycap.Text),
-            //    new SqlParameter("@matkhau", txtmatkhau.Text)
-            //};
-            //int i = dp.DangNhap(sqlQuery, parameters);
-
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@taikhoan", txttentruycap.Text);
-            parameters.Add("@matkhau", txtmatkhau.Text);
-
-            // Đếm 
-
-            int i = dp.Select(sqlQuery, false, parameters).Rows.Count;
-
-            if (i == 1)
+            TaiKhoan tk = new TaiKhoan(txttentruycap.Text.Trim(), txtmatkhau.Text.Trim());
+            if (TaiKhoanBUS.Instance.DangNhap(tk))
             {
-                dangnhapthanhcong = true;
+                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                frmmain frm = new frmmain();
-                frm.ShowDialog();
+                frmmain frMain = new frmmain();
+                frMain.ShowDialog();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Tên người dùng hoặc mật khẩu sai", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtmatkhau.Clear();
                 txttentruycap.Focus();
             }
         }
@@ -71,22 +45,9 @@ namespace QuanLyNhanSu
         {
             this.Close();
         }
+        #endregion
 
-
-        //bool mv;
-        //int x, y;
-        //private void frmdangnhap_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    mv = false;
-        //}
-
-        //private void frmdangnhap_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    mv = true;
-        //    x = e.X;
-        //    y = e.Y;
-        //}
-
+        #region TextBox
         private void txttentruycap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -112,5 +73,52 @@ namespace QuanLyNhanSu
                 btndangnhap_Click(sender, e);
             }
         }
+        #endregion
+
+        #region Di chuyeen
+        bool mv;
+        int x, y;
+        private void frmdangnhap_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mv)
+            {
+                this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
+            }
+        }
+
+        private void frmdangnhap_MouseDown(object sender, MouseEventArgs e)
+        {
+            mv = true;
+            x = e.X;
+            y = e.Y;
+        }
+
+        private void frmdangnhap_MouseUp(object sender, MouseEventArgs e)
+        {
+            mv = false;
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mv = true;
+            x = e.X;
+            y = e.Y;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mv)
+            {
+                this.SetDesktopLocation(Cursor.Position.X - x, Cursor.Position.Y - y);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mv = false;
+        }
+
+        #endregion
+
     }
 }

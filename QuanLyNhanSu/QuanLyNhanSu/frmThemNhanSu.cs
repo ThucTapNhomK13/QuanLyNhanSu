@@ -51,12 +51,12 @@ namespace QuanLyNhanSu
         }
         private void frmThemNhanSu_Load(object sender, EventArgs e)
         {
-            DataProvider dp = new DataProvider();
-            string sql = "select tenphongban from phongban";
-            DataTable dt = new DataTable();
-            dt = dp.GetData(sql);
-            cmbPhongBan.DataSource = dt;
-            cmbPhongBan.DisplayMember = "tenphongban";
+            //DataProvider dp = new DataProvider();
+            //string sql = "select tenphongban from phongban";
+            //DataTable dt = new DataTable();
+            //dt = dp.GetData(sql);
+            //cmbPhongBan.DataSource = dt;
+            //cmbPhongBan.DisplayMember = "tenphongban";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -66,56 +66,56 @@ namespace QuanLyNhanSu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (!XuLyDuLieu())
-                return;
-            // ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvuma luongcoban phongbanma trinhdohocvanma
-            DataProvider dbCon = new DataProvider();
+            //if (!XuLyDuLieu())
+            //    return;
+            //// ma hoten ngaysinh quequan gioitinh dantoc sodienthoai taikhoan matkhau chucvuma luongcoban phongbanma trinhdohocvanma
+            //DataProvider dbCon = new DataProvider();
 
-            string sqlQuery = "INSERT INTO nhanvien ";
-            sqlQuery += " ( ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan "; 
-            sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
-            sqlQuery += " VALUES ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ";
-            sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
-            sqlQuery += "(ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai)";
-            //sqlQuery += ", taikhoan,chucvuma, luongcoban, phongbanma, trinhdohocvanma) ";
-            sqlQuery += "VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai)";
-            //sqlQuery += " , @taikhoan,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
+            //string sqlQuery = "INSERT INTO nhanvien ";
+            //sqlQuery += " ( ma,   hoten, ngaysinh,  quequan,  gioitinh,  dantoc,  sodienthoai,  taikhoan "; 
+            //sqlQuery += " ,chucvuma, luongcoban, phongbanma, trinhdohocvanma ) ";
+            //sqlQuery += " VALUES ( @ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai, @taikhoan ";
+            //sqlQuery += " ,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvanma ) ";
+            //sqlQuery += "(ma, hoten, ngaysinh, quequan, gioitinh, dantoc, sodienthoai)";
+            ////sqlQuery += ", taikhoan,chucvuma, luongcoban, phongbanma, trinhdohocvanma) ";
+            //sqlQuery += "VALUES (@ma, @hoten, @ngaysinh, @quequan, @gioitinh, @dantoc, @sodienthoai)";
+            ////sqlQuery += " , @taikhoan,@chucvuma, @luongcoban, @phongbanma, @trinhdohocvan ) ";
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@ma", txtMa.Text);
-            parameters.Add("@hoten", txtHoTen.Text);
-            parameters.Add("@ngaysinh", datngaysinh.Text.ToString());
-            parameters.Add("@quequan",cmbQueQuan.Text);
-            if(chkNam.Checked)
-                parameters.Add("@gioitinh", chkNam.Text);
-            else
-                parameters.Add("@gioitinh", chkNu.Text);
-            parameters.Add("@dantoc", cmbDanToc.Text);
-            parameters.Add("@sodienthoai", txtSDT.Text);
-            parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            parameters.Add("@chucvuma", cmbChucVu.Text);
-            parameters.Add("@luongcoban", txtLuong.Text);
-            parameters.Add("@phongbanma", cmbPhongBan.Text);
-            parameters.Add("@trinhdohocvanma", txtHocVan.Text);
+            //Dictionary<string, object> parameters = new Dictionary<string, object>();
+            //parameters.Add("@ma", txtMa.Text);
+            //parameters.Add("@hoten", txtHoTen.Text);
+            //parameters.Add("@ngaysinh", datngaysinh.Text.ToString());
+            //parameters.Add("@quequan",cmbQueQuan.Text);
+            //if(chkNam.Checked)
+            //    parameters.Add("@gioitinh", chkNam.Text);
+            //else
+            //    parameters.Add("@gioitinh", chkNu.Text);
+            //parameters.Add("@dantoc", cmbDanToc.Text);
+            //parameters.Add("@sodienthoai", txtSDT.Text);
             //parameters.Add("@taikhoan", txtTaiKhoan.Text);
-            //if(cmbChucVu.Text.ToString() == "Giám đốc")
-            //{
-            //    parameters.Add("@chucvuma", "CV01");
-            //}
-
-            
-            //parameters.Add("@luongcoban", txtLuong.Text.ToString());
+            //parameters.Add("@chucvuma", cmbChucVu.Text);
+            //parameters.Add("@luongcoban", txtLuong.Text);
             //parameters.Add("@phongbanma", cmbPhongBan.Text);
             //parameters.Add("@trinhdohocvanma", txtHocVan.Text);
+            ////parameters.Add("@taikhoan", txtTaiKhoan.Text);
+            ////if(cmbChucVu.Text.ToString() == "Giám đốc")
+            ////{
+            ////    parameters.Add("@chucvuma", "CV01");
+            ////}
 
-            //MessageBox.Show(datngaysinh.Text);
+            
+            ////parameters.Add("@luongcoban", txtLuong.Text.ToString());
+            ////parameters.Add("@phongbanma", cmbPhongBan.Text);
+            ////parameters.Add("@trinhdohocvanma", txtHocVan.Text);
 
-            if (dbCon.InsertUpdateDelete(sqlQuery, parameters, false))
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ////MessageBox.Show(datngaysinh.Text);
 
-            this.Close();
+            //if (dbCon.InsertUpdateDelete(sqlQuery, parameters, false))
+            //    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //else
+            //    MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //this.Close();
         }
 
         private void txtHoTen_MouseClick(object sender, MouseEventArgs e)
