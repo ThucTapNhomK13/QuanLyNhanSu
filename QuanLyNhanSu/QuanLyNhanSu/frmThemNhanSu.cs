@@ -21,28 +21,28 @@ namespace QuanLyNhanSu
             InitializeComponent();
         }
 
-        private void LoadChucVu ()
+        private void LoadChucVu()
         {
             cmbChucVu.DataSource = ChucVuBUS.Instance.GetAll();
             cmbChucVu.DisplayMember = "TenChucVu";
             cmbChucVu.ValueMember = "Ma";
         }
 
-        private void LoadHocVan ()
+        private void LoadHocVan()
         {
             cmbHocVan.DataSource = HocVanBUS.Instance.GetAll();
             cmbHocVan.DisplayMember = "TrinhDoHocVan";
             cmbHocVan.ValueMember = "Ma";
         }
 
-        private void LoadPhongBan ()
+        private void LoadPhongBan()
         {
             cmbPhongBan.DataSource = PhongBanBUS.Instance.GetAll();
             cmbPhongBan.DisplayMember = "TenPhongBan";
             cmbPhongBan.ValueMember = "Ma";
         }
 
-        private NhanSu SetNhanSu ()
+        private NhanSu SetNhanSu()
         {
             NhanSu ns = new NhanSu();
             ns.Ma = txtMa.Text.Trim();
@@ -63,7 +63,7 @@ namespace QuanLyNhanSu
         }
 
 
-        private bool XuLyDuLieu ()
+        private bool XuLyDuLieu()
         {
 
             if (!XuLyChuoi.KiemTraMa(txtMa.Text))
@@ -105,12 +105,9 @@ namespace QuanLyNhanSu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
-            if (!XuLyDuLieu())
+
+            if (XuLyDuLieu())
             {
-                MessageBox.Show("Dữ liệu không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
                 NhanSu ns = SetNhanSu();
                 if (NhanSuBUS.Instance.CheckId(ns.Ma))
                 {
@@ -129,8 +126,11 @@ namespace QuanLyNhanSu
                     MessageBox.Show("Mã nhân viên đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 txtMa.Focus();
-       
+            }
+
             
+
+
         }
 
         private void txtHoTen_MouseClick(object sender, MouseEventArgs e)
@@ -156,7 +156,7 @@ namespace QuanLyNhanSu
             txtLuong.Clear();
         }
 
-        
+
         private void txtMa_Click(object sender, EventArgs e)
         {
             txtMa.Clear();
